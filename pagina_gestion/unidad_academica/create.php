@@ -1,16 +1,14 @@
 <?php
 require '../config/db.php';
 
-$edificios = $pdo->query("SELECT nombre, id_edificio FROM Edificio")->fetchAll();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
-    $id_edificio = $_POST['id_edificio'];
+    $abreviatura = $_POST['abreviatura'];
 
-    $stmt = $pdo->prepare("INSERT INTO Aula (nombre, id_edificio) VALUES (:nombre, :id_edificio)");
+    $stmt = $pdo->prepare("INSERT INTO Unidad_Academica (nombre, abreviatura) VALUES (:nombre, :abreviatura)");
     $stmt->execute([
         'nombre' => $nombre,
-        'id_edificio' => $id_edificio
+        'abreviatura' => $abreviatura
     ]);
 
     header("Location: index.php");
@@ -22,23 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gestión</title>
+    <title>Nueva Unidad Académica</title>
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
-<h2>Nueva Aula</h2>
+<h2>Nueva Unidad Académica</h2>
 <form method="POST">
-    Nombre: <input type="text" name="nombre" required>
+    Nombre: <input type="text" name="nombre" required><br><br>
+    Abreviatura: <input type="text" name="abreviatura" maxlength="5" required><br><br>
 
-    Edificio:
-    <select name="id_edificio" required>
-        <option value="">Seleccione un edificio</option>
-        <?php foreach ($edificios as $edificio): ?>
-            <option value="<?= $edificio['id_edificio'] ?>">
-                <?= $edificio['nombre'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
     <button type="submit">Guardar</button>
 </form>
 <a href="index.php">Cancelar</a>
