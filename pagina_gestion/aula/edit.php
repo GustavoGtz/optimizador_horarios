@@ -1,45 +1,47 @@
 <?php
 require '../config/db.php';
 
-$id = $_GET['id'];
-$edificios = $pdo->query("SELECT nombre, id_edificio FROM edificio")->fetchAll();
+$id_aula = $_GET['id_aula'];
+$id_edificio = $_GET['id_edificio'];
+
+$edificios = $pdo->query("SELECT nombre, id_edificio FROM Edificio")->fetchAll();
+$tipos = $pdo->query("SELECT nombre, id_tipo_clase FROM Tipo_Clase")->fetchAll();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'];
-    $id_edificio = $_POST['id_edificio'];
+    $id_tipo_clase = $_POST['id_tipo_clase'];
+    $cupo = $_POST['cupo'];
 
-    $stmt = $pdo->prepare("UPDATE aula SET nombre = :nombre, id_edificio = :id_edificio WHERE id_aula = :id");
+    $stmt = $pdo->prepare("UPDATE Aula SET id_tipo_clase = :id_tipo_clase, cupo = :cupo
+                           WHERE id_aula = :id_aula AND id_edificio = :id_edificio");
     $stmt->execute([
-        'nombre' => $nombre,
-        'id_edificio' => $id_edificio,
-        'id' => $id
+        'id_tipo_clase' => $id_tipo_clase,
+        'cupo' => $cupo,
+        'id_aula' => $id_aula,
+        'id_edificio' => $id_edificio
     ]);
+
     header("Location: index.php");
 } else {
-    $stmt = $pdo->prepare("SELECT * FROM aula WHERE id_aula = :id");
-    $stmt->execute(['id' => $id]);
+    $stmt = $pdo->prepare("SELECT * FROM Aula WHERE id_aula = :id_aula AND id_edificio = :id_edificio");
+    $stmt->execute(['id_aula' => $id_aula, 'id_edificio' => $id_edificio]);
     $aula = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Gestión</title>
-    <link rel="stylesheet" href="../style.css"> 
-</head>
+<head><meta charset="UTF-8"><title>Editar Aula</title></head>
 <body>
 <h2>Editar Aula</h2>
 <form method="POST">
-    Nombre: <input type="text" name="nombre" value="<?= $aula['nombre'] ?>" required>
-    Edificio:
-    <select name="id_edificio" required>
-        <?php foreach ($edificios as $ed): ?>
-            <option value="<?= $ed['id_edificio'] ?>" <?= $ed['id_edificio'] == $aula['id_edificio'] ? 'selected' : '' ?>>
-                <?= $ed['nombre'] ?>
+    Tipo de Clase:
+    <select name="id_tipo_clase" required>
+        <?php foreach ($tipos as $tipo): ?>
+            <option value="<?= $tipo['id_tipo_clase'] ?>" <?= $tipo['id_tipo_clase'] == $aula['id_tipo_clase'] ? 'selected' : '' ?>>
+                <?= $tipo['nombre'] ?>
             </option>
         <?php endforeach; ?>
-    </select>
+    </select><br>
+    Cupo: <input type="number" name="cupo" value="<?= $aula['cupo'] ?>" required><br>
     <button type="submit">Actualizar</button>
 </form>
 <a href="index.php">Cancelar</a>

@@ -2,44 +2,70 @@
 require '../config/db.php';
 
 $id = $_GET['id'];
-$edificios = $pdo->query("SELECT nombre, id_edificio FROM edificio")->fetchAll();
+
+$tipos = $pdo->query("SELECT * FROM Tipo_Clase")->fetchAll();
+$programas = $pdo->query("SELECT * FROM Programa_Educativo")->fetchAll();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $clave = $_POST['clave'];
     $nombre = $_POST['nombre'];
-    $id_edificio = $_POST['id_edificio'];
+    $creditos = $_POST['creditos'];
+    $semestre = $_POST['semestre'];
+    $horas = $_POST['horas'];
+    $id_tipo = $_POST['id_tipo_clase'];
+    $id_programa = $_POST['id_programa_educativo'];
 
-    $stmt = $pdo->prepare("UPDATE aula SET nombre = :nombre, id_edificio = :id_edificio WHERE id_aula = :id");
+    $stmt = $pdo->prepare("UPDATE Materia SET clave = :clave, nombre = :nombre, creditos = :creditos, semestre = :semestre,
+                           horas_por_semana = :horas, id_tipo_clase = :id_tipo, id_programa_educativo = :id_programa
+                           WHERE id_materia = :id");
     $stmt->execute([
+        'clave' => $clave,
         'nombre' => $nombre,
-        'id_edificio' => $id_edificio,
+        'creditos' => $creditos,
+        'semestre' => $semestre,
+        'horas' => $horas,
+        'id_tipo' => $id_tipo,
+        'id_programa' => $id_programa,
         'id' => $id
     ]);
+
     header("Location: index.php");
+    exit;
 } else {
-    $stmt = $pdo->prepare("SELECT * FROM aula WHERE id_aula = :id");
+    $stmt = $pdo->prepare("SELECT * FROM Materia WHERE id_materia = :id");
     $stmt->execute(['id' => $id]);
-    $aula = $stmt->fetch(PDO::FETCH_ASSOC);
+    $materia = $stmt->fetch(PDO::FETCH_ASSOC);
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Gestión</title>
-    <link rel="stylesheet" href="../style.css"> 
+    <title>Editar Materia</title>
 </head>
 <body>
-<h2>Editar Aula</h2>
+<h2>Editar Materia</h2>
 <form method="POST">
-    Nombre: <input type="text" name="nombre" value="<?= $aula['nombre'] ?>" required>
-    Edificio:
-    <select name="id_edificio" required>
-        <?php foreach ($edificios as $ed): ?>
-            <option value="<?= $ed['id_edificio'] ?>" <?= $ed['id_edificio'] == $aula['id_edificio'] ? 'selected' : '' ?>>
-                <?= $ed['nombre'] ?>
+    Clave: <input type="text" name="clave" value="<?= $materia['clave'] ?>" required><br>
+    Nombre: <input type="text" name="nombre" value="<?= $materia['nombre'] ?>" required><br>
+    Créditos: <input type="number" name="creditos" value="<?= $materia['creditos'] ?>" required><br>
+    Semestre: <input type="number" name="semestre" value="<?= $materia['semestre'] ?>" required><br>
+    Horas/semana: <input type="number" name="horas" value="<?= $materia['horas_por_semana'] ?>" required><br>
+    Tipo de Clase:
+    <select name="id_tipo_clase" required>
+        <?php foreach ($tipos as $tipo): ?>
+            <option value="<?= $tipo['id_tipo_clase'] ?>" <?= $tipo['id_tipo_clase'] == $materia['id_tipo_clase'] ? 'selected' : '' ?>>
+                <?= $tipo['nombre'] ?>
             </option>
         <?php endforeach; ?>
-    </select>
+    </select><br>
+    Programa Educativo:
+    <select name="id_programa_educativo" required>
+        <?php foreach ($programas as $programa): ?>
+            <option value="<?= $programa['id_programa_educativo'] ?>" <?= $programa['id_programa_educativo'] == $materia['id_programa_educativo'] ? 'selected' : '' ?>>
+                <?= $programa['nombre'] ?>
+            </option>
+        <?php endforeach; ?>
+    </select><br>
     <button type="submit">Actualizar</button>
 </form>
 <a href="index.php">Cancelar</a>
