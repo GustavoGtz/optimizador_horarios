@@ -1,7 +1,6 @@
 <?php
 require '../config/db.php';
 
-// Obtener profesores y materias para llenar el formulario
 $profesores = $pdo->query("SELECT id_profesor, nombre FROM Profesor")->fetchAll();
 $materias = $pdo->query("SELECT id_materia, nombre FROM Materia")->fetchAll();
 
@@ -24,33 +23,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Asignar Materia a Profesor</title>
+    <title>Nueva Asignación</title>
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
-<h2>Asignar Materia a Profesor</h2>
+<h2>Asignar Profesor a Materia</h2>
 <form method="POST">
     Profesor:
     <select name="id_profesor" required>
         <option value="">Seleccione un profesor</option>
-        <?php foreach ($profesores as $profesor): ?>
-            <option value="<?= $profesor['id_profesor'] ?>">
-                <?= $profesor['nombre'] ?>
-            </option>
+        <?php foreach ($profesores as $p): ?>
+            <option value="<?= $p['id_profesor'] ?>"><?= htmlspecialchars($p['nombre']) ?></option>
         <?php endforeach; ?>
     </select>
 
     Materia:
     <select name="id_materia" required>
         <option value="">Seleccione una materia</option>
-        <?php foreach ($materias as $materia): ?>
-            <option value="<?= $materia['id_materia'] ?>">
-                <?= $materia['nombre'] ?>
-            </option>
+        <?php foreach ($materias as $m): ?>
+            <option value="<?= $m['id_materia'] ?>"><?= htmlspecialchars($m['nombre']) ?></option>
         <?php endforeach; ?>
     </select>
 
-    <button type="submit">Asignar</button>
+    <button type="submit">Guardar</button>
 </form>
 <a href="index.php">Cancelar</a>
 </body>
