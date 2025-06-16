@@ -1,44 +1,41 @@
 <?php
 require '../config/db.php';
 
-$edificios = $pdo->query("SELECT nombre, id_edificio FROM Edificio")->fetchAll();
+// Obtener contratos para el select
+$contratos = $pdo->query("SELECT * FROM Contrato")->fetchAll();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_profesor = $_POST['id_profesor'];
     $nombre = $_POST['nombre'];
-    $id_edificio = $_POST['id_edificio'];
+    $id_contrato = $_POST['id_contrato'];
 
-    $stmt = $pdo->prepare("INSERT INTO Aula (nombre, id_edificio) VALUES (:nombre, :id_edificio)");
+    $stmt = $pdo->prepare("INSERT INTO Profesor (id_profesor, nombre, id_contrato) VALUES (:id_profesor, :nombre, :id_contrato)");
     $stmt->execute([
+        'id_profesor' => $id_profesor,
         'nombre' => $nombre,
-        'id_edificio' => $id_edificio
+        'id_contrato' => $id_contrato
     ]);
 
     header("Location: index.php");
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Gestión</title>
-    <link rel="stylesheet" href="../style.css"> 
+    <title>Nuevo Profesor</title>
 </head>
 <body>
-<h2>Nueva Aula</h2>
+<h2>Agregar Profesor</h2>
 <form method="POST">
-    Nombre: <input type="text" name="nombre" required>
-
-    Edificio:
-    <select name="id_edificio" required>
-        <option value="">Seleccione un edificio</option>
-        <?php foreach ($edificios as $edificio): ?>
-            <option value="<?= $edificio['id_edificio'] ?>">
-                <?= $edificio['nombre'] ?>
-            </option>
+    ID Profesor: <input type="number" name="id_profesor" required><br>
+    Nombre: <input type="text" name="nombre" required><br>
+    Contrato:
+    <select name="id_contrato" required>
+        <?php foreach ($contratos as $contrato): ?>
+            <option value="<?= $contrato['id_contrato'] ?>"><?= $contrato['nombre'] ?></option>
         <?php endforeach; ?>
-    </select>
+    </select><br>
     <button type="submit">Guardar</button>
 </form>
 <a href="index.php">Cancelar</a>

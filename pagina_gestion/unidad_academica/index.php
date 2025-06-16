@@ -1,36 +1,34 @@
 <?php
 require '../config/db.php';
 
-$stmt = $pdo->query("SELECT * FROM aula");
-$aulas = $pdo->query("
-    SELECT 
-        a.id_aula, 
-        a.nombre AS nombre_aula, 
-        e.nombre AS nombre_edificio
-    FROM Aula a
-    JOIN Edificio e ON a.id_edificio = e.id_edificio
-")->fetchAll();
+// Obtener todas las unidades académicas
+$unidades = $pdo->query("SELECT * FROM Unidad_Academica")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gestión</title>
+    <title>Unidades Académicas</title>
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
-<h2>Aulas</h2>
-<a href="create.php">Nueva Aula</a>
+<h2>Unidades Académicas</h2>
+<a href="create.php">Nueva Unidad Académica</a>
 <table border="1">
-    <tr><th>ID</th><th>Nombre</th><th>Edificio</th><th>Acciones</th></tr>
-    <?php foreach ($aulas as $a): ?>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Abreviatura</th>
+        <th>Acciones</th>
+    </tr>
+    <?php foreach ($unidades as $u): ?>
         <tr>
-            <td><?= $a['id_aula'] ?></td>
-            <td><?= $a['nombre_aula'] ?></td>
-            <td><?= $a['nombre_edificio'] ?></td>
+            <td><?= $u['id_unidad_academica'] ?></td>
+            <td><?= htmlspecialchars($u['nombre']) ?></td>
+            <td><?= htmlspecialchars($u['abreviatura']) ?></td>
             <td>
-                <a href="edit.php?id=<?= $a['id_aula'] ?>">Editar</a> |
-                <a href="delete.php?id=<?= $a['id_aula'] ?>">Eliminar</a>
+                <a href="edit.php?id=<?= $u['id_unidad_academica'] ?>">Editar</a> |
+                <a href="delete.php?id=<?= $u['id_unidad_academica'] ?>">Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
