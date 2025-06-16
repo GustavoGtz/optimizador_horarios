@@ -41,12 +41,14 @@ CREATE TABLE Profesor (
     id_profesor INT NOT NULL PRIMARY KEY,
     nombre VARCHAR(100),
     id_contrato INT NOT NULL,
+    tiene_discapacidad BOOLEAN DEFAULT FALSE,   
     FOREIGN KEY (id_contrato) REFERENCES Contrato(id_contrato)
 );
 
 CREATE TABLE Profesor_Materia (
     id_profesor INT NOT NULL,
     id_materia INT NOT NULL,
+    veces_impartida INT NOT NULL DEFAULT 1,
     PRIMARY KEY (id_profesor, id_materia),
     FOREIGN KEY (id_profesor) REFERENCES Profesor(id_profesor),
     FOREIGN KEY (id_materia) REFERENCES Materia(id_materia)
@@ -67,3 +69,16 @@ CREATE TABLE Aula (
     FOREIGN KEY (id_tipo_clase) REFERENCES Tipo_Clase(id_tipo_clase)
 );
 
+
+
+
+
+
+
+
+
+ALTER TABLE Profesor
+ADD COLUMN tiene_discapacidad BOOLEAN DEFAULT FALSE;
+
+ALTER TABLE Profesor_Materia
+ADD COLUMN veces_impartida INT NOT NULL DEFAULT 1;
