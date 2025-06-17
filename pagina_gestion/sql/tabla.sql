@@ -68,17 +68,3 @@ CREATE TABLE Aula (
     FOREIGN KEY (id_edificio) REFERENCES Edificio(id_edificio),
     FOREIGN KEY (id_tipo_clase) REFERENCES Tipo_Clase(id_tipo_clase)
 );
-
-
-
-
-
-
-
-
-
-ALTER TABLE Profesor
-ADD COLUMN tiene_discapacidad BOOLEAN DEFAULT FALSE;
-
-ALTER TABLE Profesor_Materia
-ADD COLUMN veces_impartida INT NOT NULL DEFAULT 1;

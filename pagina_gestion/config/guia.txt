@@ -1,1 +1,18 @@
-Modificar el archivo con los datos pertinentes.
+El archivo 'db.php' es un script esencial en PHP que permite establecer la conexión entre la página web y la base de datos local. Su función principal es configurar correctamente los parámetros necesarios para que la aplicación pueda comunicarse con PostgreSQL. Para ello, es importante completar adecuadamente los campos de conexión:
+
+- Host: "localhost"  
+- Base de datos: "buap"  
+- Usuario: "postgres"  
+- Contraseña: "1234"  
+
+Estos valores pueden variar dependiendo de la configuración del entorno, por lo que es recomendable verificar los datos específicos de tu instalación.
+
+Además de la conexión a la base de datos, es necesario levantar un servidor local para visualizar la página web. Una forma sencilla de hacerlo es a través de herramientas con interfaz gráfica como PgAdmin. También es posible lograrlo utilizando el propio PHP desde la terminal.
+
+En sistemas basados en Ubuntu, asegúrate de tener instalado PHP junto con la extensión correspondiente para PostgreSQL. Luego, ejecuta el siguiente comando en la terminal:
+
+php -S localhost:8000
+
+Posteriormente, abre tu navegador de confianza y accede a la siguiente dirección local:
+
+http://localhost:8000/index.php

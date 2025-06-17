@@ -1,1 +1,5 @@
-Usar Dbeaver para ejecutar esto
+'tabla.sql' es el archivo corrrespondiente para crear las tablas correspondientes al problema. Este puede ser ejecutado por medio del programa Dbeaver o cualquier otra forma que prefiera el usuario.
+
+'valores.sql' es el archivo corrrespondiente para llenar los valores iniciales del problema en las distintas tablas de la base de datos. Este puede ser ejecutado por medio del programa Dbeaver o cualquier otra forma que prefiera el usuario.
+
+

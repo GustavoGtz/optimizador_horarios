@@ -7,7 +7,7 @@
 <body>
 <h1>Proyecto de Optimización para Calendarios Escolares</h1>
 <h2> Gestiones </h2>
-<a href="unidad_academico/index.php">Unidades Academicas</a>
+<a href="unidad_academica/index.php">Unidades Academicas</a>
 <br>
 <a href="programa_educativo/index.php">Programas Educativos</a>
 <br>

@@ -14,6 +14,12 @@ VALUES
     ('Medio Tiempo', 15, 9),
     ('Asignatura', 18, 1);
 
+INSERT INTO Tipo_Clase (nombre) VALUES 
+('Taller'),
+('Cómputo'),
+('Laboratorio de Ciencias'),
+('Aulas');
+
 INSERT INTO programa_educativo (nombre, abreviatura, id_unidad_academica)
 VALUES
     ('Licenciatura en Biología', 'BIO', 1),
@@ -439,3 +445,13 @@ VALUES
 (333001799, 'MORENO - RODRIGUEZ JOSE ALBINO', 2),
 (333017055, 'HERNANDEZ - CALVA ADRIANA', 3),
 (333523617, 'LAZCANO - HERNANDEZ JUAN MIGUEL', 3);
+
+INSERT INTO edificio (nombre)
+VALUES
+    ('EMA1'),
+    ('EMA10'),
+    ('EMA3'),
+    ('EMA4'),
+    ('EMA5'),
+    ('EMA6'),
+    ('EMA7');
