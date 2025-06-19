@@ -5,6 +5,7 @@ $relaciones = $pdo->query("
     SELECT 
         pm.id_profesor,
         pm.id_materia,
+        pm.veces_impartida,
         p.nombre AS nombre_profesor,
         m.nombre AS nombre_materia
     FROM Profesor_Materia pm
@@ -28,12 +29,14 @@ $relaciones = $pdo->query("
     <tr>
         <th>Profesor</th>
         <th>Materia</th>
+        <th>Veces Impartida</th>
         <th>Acciones</th>
     </tr>
     <?php foreach ($relaciones as $r): ?>
         <tr>
             <td><?= htmlspecialchars($r['nombre_profesor']) ?></td>
             <td><?= htmlspecialchars($r['nombre_materia']) ?></td>
+            <td><?= htmlspecialchars($r['veces_impartida']) ?></td>
             <td>
                 <a href="edit.php?id_profesor=<?= $r['id_profesor'] ?>&id_materia=<?= $r['id_materia'] ?>">Editar</a> |
                 <a href="delete.php?id_profesor=<?= $r['id_profesor'] ?>&id_materia=<?= $r['id_materia'] ?>">Eliminar</a>

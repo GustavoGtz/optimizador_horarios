@@ -18,7 +18,7 @@ CREATE TABLE Contrato (
 
 CREATE TABLE Programa_Educativo (
     id_programa_educativo SERIAL PRIMARY KEY,
-    nombre VARCHAR(50),
+    nombre VARCHAR(100),
     abreviatura VARCHAR(5),
     id_unidad_academica INT NOT NULL,
     FOREIGN KEY (id_unidad_academica) REFERENCES Unidad_Academica(id_unidad_academica)
@@ -68,3 +68,4 @@ CREATE TABLE Aula (
     FOREIGN KEY (id_edificio) REFERENCES Edificio(id_edificio),
     FOREIGN KEY (id_tipo_clase) REFERENCES Tipo_Clase(id_tipo_clase)
 );
+
