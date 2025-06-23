@@ -1,0 +1,26 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout
+
+def main():
+    app = QApplication(sys.argv)
+
+    # Create the main window
+    window = QWidget()
+    window.setWindowTitle("PyQt5 Hello World")
+
+    # Create a label widget
+    label = QLabel("Hello, World!", parent=window)
+
+    # Set layout
+    layout = QVBoxLayout()
+    layout.addWidget(label)
+    window.setLayout(layout)
+
+    # Show the window
+    window.show()
+
+    # Run the application event loop
+    sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
