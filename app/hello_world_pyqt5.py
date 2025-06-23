@@ -1,44 +1,56 @@
 import sys
+import psycopg2
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QLineEdit,
-    QPushButton, QWidget, QVBoxLayout
+    QApplication, QMainWindow, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget
 )
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Greeting App")
+        self.setWindowTitle("PostgreSQL Data Viewer")
 
-        # Central widget and layout
-        central_widget = QWidget()
+        # Layout
+        self.table = QTableWidget()
         layout = QVBoxLayout()
+        layout.addWidget(self.table)
 
-        # Input field
-        self.input = QLineEdit()
-        self.input.setPlaceholderText("Enter your name")
+        container = QWidget()
+        container.setLayout(layout)
+        self.setCentralWidget(container)
 
-        # Button
-        self.button = QPushButton("Say Hello")
-        self.button.clicked.connect(self.say_hello)
+        # Load data
+        self.load_data()
 
-        # Label
-        self.label = QLabel("Hello!")
+    def load_data(self):
+        try:
+            # Replace with your actual credentials
+            conn = psycopg2.connect(
+                host="localhost",
+                dbname="buap",
+                user="postgres",
+                password="1234"
+            )
+            cursor = conn.cursor()
 
-        # Add widgets to layout
-        layout.addWidget(self.input)
-        layout.addWidget(self.button)
-        layout.addWidget(self.label)
+            cursor.execute("SELECT * FROM Profesor")
+            rows = cursor.fetchall()
+            columns = [desc[0] for desc in cursor.description]
 
-        central_widget.setLayout(layout)
-        self.setCentralWidget(central_widget)
+            self.table.setRowCount(len(rows))
+            self.table.setColumnCount(len(columns))
+            self.table.setHorizontalHeaderLabels(columns)
 
-    def say_hello(self):
-        name = self.input.text().strip()
-        if name:
-            self.label.setText(f"Hello, {name}!")
-        else:
-            self.label.setText("Hello!")
+            for row_idx, row_data in enumerate(rows):
+                for col_idx, value in enumerate(row_data):
+                    self.table.setItem(row_idx, col_idx, QTableWidgetItem(str(value)))
+
+            cursor.close()
+            conn.close()
+
+        except Exception as e:
+            print("Error loading data:", e)
 
 def main():
     app = QApplication(sys.argv)
