@@ -28,7 +28,7 @@ $$ x_{m, h_d} \begin{cases}
 0 & \text{si no}
 \end{cases}$$
 
-# Restricciones
+# Restricciones Duras
 
 ## Restricciones Blandas
 
