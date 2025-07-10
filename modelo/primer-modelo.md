@@ -30,6 +30,11 @@ $$ x_{m, h_d} \begin{cases}
 
 # Restricciones Duras
 
+## Restricciones Duras
+- Todas las materias tienen que estar cubiertas
+- Un maestro no puede dar dos clases al mismo tiempo
+- Una clase no puede ser impartida en dos salones al mismo tiempo
+
 ## Restricciones Blandas
 
 - Minimizar el numero de maestros imaginarios
