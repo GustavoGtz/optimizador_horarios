@@ -10,6 +10,7 @@
     - $BH = D \times H = \{(d, h)\ |\ d \in D, h \in H\}$
 
 # Parametros
+
 - $\text{HorasSemanaMateria}(m) = n$, donde $n$ es el numero de horas que la materia $m$ tiene por semana
 - $\text{TipoClase}(m) = t$, donde $t \in \{1,2,3,4\}$ es el tipo de clase de la materia $m$
 - $\text{TipoAula}(a) = t$, donde $t \in \{1,2,3,4\}$ es el tipo de aula de la aula $a$
@@ -35,7 +36,7 @@ PROBABLEMENTE REPETIDA/INNECESARIA
 y_{i, j} =
 \begin{cases}
     1 & \text{si el profesor } i
-    \text{ puede ense\~{n}ar la materia } j \\
+    \text{ puede enseñar la materia } j \\
     0 & \text{si no}
 \end{cases}
 $
@@ -63,13 +64,11 @@ $$
 $$
 
 - No Solapamiento Aula (No asignar un aula a más de una materia en un bloque horario):
-
 $$
 \sum_{i \in P} \sum_{j \in M} x^{i, j}_{k, t} \le 1 \quad \forall\ k \in A,\ t \in BH
 $$
 
 - Profesor Puede Enseñar (Asignar un profesor a una materia solo si el profesor puede enseñar esa materia):
-
 $$
 x^{i, j}_{k, t} \le \text{Relacion}(i,j) \quad \forall\ i \in P,\ j \in M,\ k \in A,\ t \in BH
 $$
