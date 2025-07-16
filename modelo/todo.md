@@ -11,7 +11,7 @@
 - [ ] Arreglar que los horarios no se hagan todos en un dia, y no sean sesiones muy larga
     - [x] Agregar la variable $\hat{y}$ (significa asignacion profe-materia)
     - [x] Agregar las restriccions de $\hat{y}$
-    - [ ] Agregar variable $s$
+    - [x] Agregar variable $s$
     - [ ] Agregar funciones $\psi_{min}(j)$ y $\psi_{max}(j)$
         - [ ] Agregar en datos, la duracion de sesion min. y max. para cada materia
     - [ ] Agregar restricciones para $s$ y $\psi$
