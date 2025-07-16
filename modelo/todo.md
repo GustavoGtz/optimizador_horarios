@@ -8,10 +8,15 @@
     - [ ] Agregar conjunto de profes imaginarios
     - [ ] Agregar funcion a minimizar en la funcion objetivo, que sea la suma
           de las asignaciones de prof. imaginarios.
-- [ ] Agregar Variable S para evitar que las materias tengan breaks
-    - [x] Agregar definicion variable
-    - [ ] Agregar restricciones variable
+- [ ] Arreglar que los horarios no se hagan todos en un dia, y no sean sesiones muy larga
+    - [x] Agregar la variable $\hat{y}$ (significa asignacion profe-materia)
+    - [ ] Agregar las restriccions de $\hat{y}$
+    - [ ] Agregar funciones $\psi_{min}(j)$ y $\psi_{max}(j)$
+        - [ ] Agregar en datos, la duracion de sesion min. y max. para cada materia
+    - [ ] Agregar variable $s$
+    - [ ] Agregar restricciones para $s$ y $\psi$
 - [ ] Mejorar Funcion objetivo
+- [ ] Checar si la restriccion "materia_tiene_profesor_rule" es necesaria
 - [ ] Evitar sobreescribir variables
 
 ## Version 2
