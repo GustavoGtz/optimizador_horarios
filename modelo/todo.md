@@ -5,6 +5,9 @@
 - [x] Modelo base
 - [ ] Escribir las matematicas arriba del codigo
 - [ ] Arreglar profesores imaginarios (usa variable Y)
+    - [ ] Agregar funcion que nos diga si un profe es imaginario
+    - [ ] Agregar funcion a minimizar en la funcion objetivo, que sea la suma
+          de las asignaciones de prof. imaginarios.
 - [1/2] Agregar Variable S para evitar que las materias tengan breaks
 - [ ] Mejorar Funcion objetivo
 - [ ] Evitar sobreescribir variables
