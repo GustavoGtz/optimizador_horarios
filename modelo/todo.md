@@ -4,10 +4,11 @@
 
 - [x] Modelo base
 - [ ] Escribir las matematicas arriba del codigo
-- [ ] Arreglar profesores imaginarios (usa variable Y)
-    - [ ] Agregar conjunto de profes imaginarios
-    - [ ] Agregar funcion a minimizar en la funcion objetivo, que sea la suma
+- [x] Arreglar profesores imaginarios (usa variable Y_Gorro)
+    - [X] Agregar conjunto de profes imaginarios
+    - [X] Agregar funcion a minimizar en la funcion objetivo, que sea la suma
           de las asignaciones de prof. imaginarios.
+    - [X] Agregar Conjunto de Profesores_Totaltes (Profesores Reales y Imaginarios)
 - [ ] Arreglar que los horarios no se hagan todos en un dia, y no sean sesiones muy larga
     - [x] Agregar la variable $\hat{y}$ (significa asignacion profe-materia)
     - [x] Agregar las restriccions de $\hat{y}$
