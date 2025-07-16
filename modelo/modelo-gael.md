@@ -10,6 +10,7 @@
     - $BH = D \times H = \{(d, h)\ |\ d \in D, h \in H\}$
 
 # Parametros
+
 - $\text{HorasSemanaMateria}(m) = n$, donde $n$ es el numero de horas que la materia $m$ tiene por semana
 - $\text{TipoClase}(m) = t$, donde $t \in \{1,2,3,4\}$ es el tipo de clase de la materia $m$
 - $\text{TipoAula}(a) = t$, donde $t \in \{1,2,3,4\}$ es el tipo de aula de la aula $a$
@@ -30,11 +31,12 @@ x^{i, j}_{k, t} =
 \end{cases}
 $
 
+PROBABLEMENTE REPETIDA/INNECESARIA
 - $
 y_{i, j} =
 \begin{cases}
     1 & \text{si el profesor } i
-    \text{ puede ense\~{n}ar la materia } j \\
+    \text{ puede enseñar la materia } j \\
     0 & \text{si no}
 \end{cases}
 $
@@ -49,6 +51,8 @@ z_{k, j} =
 $
 
 # Restricciones
+
+- Horas Semana Materia (Asignar exactamente las horas semanales requeridas por cada materia):
 
 $$
 \sum_{i \in P} \sum_{k \in A} \sum_{t \in BH} x^{i, j}_{k, t} \ge \text{HorasSemanaMateria}(j) \quad \forall\ j \in M
