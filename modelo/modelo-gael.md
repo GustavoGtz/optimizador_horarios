@@ -53,3 +53,10 @@ $
 $$
 \sum_{i \in P} \sum_{k \in A} \sum_{t \in BH} x^{i, j}_{k, t} \ge \text{HorasSemanaMateria}(j) \quad \forall\ j \in M
 $$
+
+- Asignar un aula a una materia solo si el tipo de aula es compatible con el tipo de materia
+
+$$
+x^{i, j}_{k, t} \leq \text{Compatibilidad}(k,j) \quad \forall i \in P, \forall j \in M, \forall k \in A, \forall t \in BH
+$$
+
