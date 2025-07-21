@@ -13,9 +13,9 @@
     - [x] Agregar la variable $\hat{y}$ (significa asignacion profe-materia)
     - [x] Agregar las restriccions de $\hat{y}$
     - [x] Agregar variable $s$
-    - [ ] Agregar funciones $\psi_{min}(j)$ y $\psi_{max}(j)$
+    - [x] Agregar funciones $\psi_{min}(j)$ y $\psi_{max}(j)$
         - [x] Agregar en datos, la duracion de sesion min. y max. para cada materia (Se agrego por ahora como duracion de 1 hora para Sesion Minima y Maxima)
-    - [ ] Agregar restricciones para $s$ y $\psi$
+    - [x] Agregar restricciones para $s$ y $\psi$
 - [X] Mejorar Funcion objetivo
 - [X] Checar si la restriccion "materia_tiene_profesor_rule" es necesaria (No es jeje, sin ella o con ella da mismo resultado)
 - [X] Evitar sobreescribir variables
