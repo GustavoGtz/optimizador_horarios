@@ -37,4 +37,23 @@ El modelo representa un sistema funcional con potencial de mejora, especialmente
 
 ---
 
-Para más detalles, en cada una de las carpetas mencionadas se puede consultar documentación técnica adicional.
+## Uso del Proyecto
+
+El uso del sistema completo sigue una secuencia de pasos estructurada. A continuación se describe el flujo de trabajo recomendado:
+
+1. **Configuración de la base de datos**  
+   El primer paso es crear y configurar la base de datos. Toda la información necesaria (scripts, estructura, carga de datos y documentación) se encuentra en la carpeta `codigos/base_de_datos/`.
+
+2. **Ajuste de credenciales**  
+   Varios de los programas requieren conexión a la base de datos. Es necesario editar las credenciales en el código (usuario, contraseña, nombre de la base de datos, host, etc.) para que coincidan con la configuración creada en el paso anterior.
+
+3. **Generación de la lista de materias**  
+   Ejecutar `agregador.py`, el cual se encargará de generar la lista de materias y carga académica con base en los datos disponibles en la base de datos. Este archivo es esencial para alimentar el modelo de optimización.
+
+4. **Ejecución del modelo de optimización**  
+   Con la lista generada, se puede ejecutar el modelo de satisfacción de restricciones para obtener un horario optimizado.
+
+5. **Visualización de resultados**  
+   Finalmente, los resultados generados por el modelo pueden visualizarse de manera interactiva mediante `cu2map.py`, que permite explorar gráficamente la ocupación del campus.
+
+Detalles adicionales se podrna encontrar en los distintos archivos del proyecto
