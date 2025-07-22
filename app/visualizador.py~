@@ -1,0 +1,321 @@
+import sys
+import os
+import time
+
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QFileDialog, QWidget
+from PyQt5.QtGui import QPixmap, QCursor
+from PyQt5.QtCore import Qt, pyqtSignal, QTimer, QThread
+
+    
+
+
+# ------------------------ Pantalla Carga ------------------------- | ------------------------------------------------------------
+class PantallaCarga(QLabel):
+    # ------------------------------ Constructor ------------------------------
+    def __init__(self, rutaSprites, intervaloMs=100, parent=None):
+        super().__init__(parent)
+        # --------------------------- Cargar Sprites --------------------------
+        self.sprites = []
+        for archivo in sorted(os.listdir(rutaSprites)):
+            if archivo.endswith('.png'):
+                pixmap = QPixmap(os.path.join(rutaSprites, archivo))
+                self.sprites.append(pixmap)
+                
+        self.idx = 0 # Indice usado para manejar los frames
+        self.setScaledContents(True)
+        self.setVisible(False)
+
+        # Contador de frames
+        self.contador = QTimer(self)
+        self.contador.timeout.connect(self.siguienteFrame) # Conectar el temproizador que pase al siguiente frame
+        self.intervalo = intervaloMs
+
+        self.resize(self.parent().size())
+        
+    # ------------------------------ Funciones de QT ------------------------------
+
+    # Funcion llamada al redimensionar la pantalla
+    def resizeEvent(self, event):
+        self.setGeometry(0, 0, self.parent().width(), self.parent().height())
+        self.escalarFrame()
+        super().resizeEvent(event)
+        
+    # ----------------------------- Funciones Propias -----------------------------
+
+    # Funcion para iniciar la pantalla de carga
+    def iniciar(self):
+        if not self.sprites:
+            return
+        self.idx = 0
+        self.escalarFrame()
+        self.setPixmap(self.sprites[self.idx])
+        self.setVisible(True)
+        self.raise_()
+        self.resize(self.parent().size())
+        self.contador.start(self.intervalo)
+
+    # Funcion para detener la pantalla de carga
+    def detener(self):
+        self.contador.stop()
+        self.setVisible(False)
+        self.clear()
+
+    # Metodo interno para realizar la animacion
+    def siguienteFrame(self):
+        self.idx = (self.idx + 1) % len(self.sprites)
+        self.escalarFrame()
+
+    # Funcion para escalar el frame actual
+    def escalarFrame(self):
+        if not self.sprites:
+            return
+        spriteOriginal = self.sprites[self.idx]
+        pixmapEscalado = spriteOriginal.scaled(
+            self.size(),
+            Qt.KeepAspectRatioByExpanding,
+            Qt.FastTransformation  # Importante para mantener bordes nítidos en pixel art
+        )
+        self.setPixmap(pixmapEscalado)
+    
+# ---------------------- Pantalla Principal ----------------------- | ------------------------------------------------------------
+class PantallaPrincipal(QLabel):
+    # ------------------------------ Constructor ------------------------------
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(self.parent().size())
+                
+    # ------------------------------ Funciones de QT ------------------------------
+    
+    # Funcion llamada al redimensionar la pantalla
+    def resizeEvent(self, event):
+        self.setGeometry(0, 0, self.parent().width(), self.parent().height())
+        self.escalarFrame()
+        super().resizeEvent(event)
+        
+    # ----------------------------- Funciones Propias -----------------------------
+
+
+# ------------------------- Boton Sprite -------------------------- | ------------------------------------------------------------
+class BotonSprite(QLabel):
+    clic = pyqtSignal()
+    
+    # ------------------------------ Constructor ------------------------------
+    def __init__(self, spriteBase, spriteHover, spriteClick, parent=None):
+        super().__init__(parent)
+        # ----------------------------- Configuracion  -----------------------------
+        
+        # Cargar las rutas de los archivos
+        self.pixmapBase  = QPixmap(spriteBase)
+        self.pixmapHover = QPixmap(spriteHover)
+        self.pixmapClick = QPixmap(spriteClick)
+
+        self.setPixmap(self.pixmapBase) # Establecer como imagen inicial la base
+        self.setCursor(QCursor(Qt.PointingHandCursor)) # Cambiar el mouse
+        self.setMouseTracking(True) # Para detectar Hover
+
+        self.estaClickeado = False
+
+    # ----------------------------- Funciones de QT -----------------------------
+    
+    # Evento para MouseTracking mouse encima del boton
+    def enterEvent(self, event): 
+        if not self.estaClickeado:
+            self.setPixmap(self.pixmapHover)
+
+    # Evento Para MouseTracking mouse afuera del boton
+    def leaveEvent(self, event):
+        if not self.estaClickeado:
+            self.setPixmap(self.pixmapBase)
+
+    # Evento para cuando se presione el boton
+    def mousePressEvent(self, event):
+        self.estaClickeado = True
+        self.setPixmap(self.pixmapClick) # Cambiar el sprite a presionado
+        super().mousePressEvent(event) # Llama al metodo del padre
+
+    # Evento para cuando se despresione el boton
+    def mouseReleaseEvent(self, event):
+        self.estaClickeado = False
+        if self.rect().contains(event.pos()): # Si el mouse sigue arriba del boton
+            self.setPixmap(self.pixmapHover)
+            self.clic.emit()  # Emitir señal personalizada
+        else:
+            self.setPixmap(self.pixmapBase)
+        super().mouseReleaseEvent(event)
+
+# --------------------- Funciones Adicionales --------------------- | ------------------------------------------------------------
+
+"""
+Thread que simula el proceso de carga (Temporal)
+"""
+class trabajoPlaceHolder(QThread):
+    terminado = pyqtSignal()
+
+    def run(self):
+        time.sleep(10)
+        self.terminado.emit()
+
+
+
+# ------------------------ Pantalla Inicio ------------------------ | ------------------------------------------------------------
+
+class PantallaInicio(QMainWindow):
+    # ------------------------------ Constructor ------------------------------
+    def __init__(self):
+        super().__init__()
+        # ----------------------------- Variables -----------------------------
+        self.anchoPantallaMinimo = 800
+        self.altoPantallaMinimo  = 450
+        self.anchoBotonMinimo  = 320  # Ancho original (64) multiplicado por 5
+        self.altoBotonMinimo   = 160  # Ancho original (32) multiplicado por 5
+        self.margenBotonMinimo = 0
+        
+        self.imagenFondoRuta = 'imgs/pantallaInicio.png'
+        self.imagenBotonNormalRuta = 'imgs/botonCsvNomal.png'
+        self.imagenBotonHoverRuta  = 'imgs/botonCsvHover.png'
+        self.imagenBotonClickRuta  = 'imgs/botonCsvClick.png'
+        self.animacionPantallaRuta = 'imgs/pantallaCarga'
+        # --------------------------- Configuracion  --------------------------
+        # Configuración de la ventana
+        self.setWindowTitle("PLAN DE MATERIAS Y AULAS BUAP CU2")
+        self.setMinimumSize(self.anchoPantallaMinimo, self.altoPantallaMinimo)
+
+        # Mostrar imagen de fondo
+        self.labelFondo = QLabel(self)
+        self.labelFondo.setScaledContents(False)
+        self.labelFondo.lower()
+
+        # Botón personalizado de imagen para cargar CSV
+        self.botonCsv = BotonSprite(
+            self.imagenBotonNormalRuta,
+            self.imagenBotonHoverRuta,
+            self.imagenBotonClickRuta,
+            self
+        )
+        self.botonCsv.clic.connect(self.botonCsvClic)  # Conecta la señal personalizada
+
+        # Pantalla de Carga
+        self.pantallaCarga = PantallaCarga(self.animacionPantallaRuta, parent=self)
+        
+        # Pantalla Principal
+        #self.pantallaPrincipal = PantallaPrincipal()
+
+        # Arregla los tamaños y posiciones
+        self.gestionPosicionTamaño()
+        
+    # ------------------------------ Funciones de QT ------------------------------
+
+    # Funcion llamada al redimensionar la ventana
+    def resizeEvent(self, evento):
+        super().resizeEvent(evento)
+        self.gestionPosicionTamaño()
+        self.pantallaCarga.resize(self.size())
+    
+    # ----------------------------- Funciones Propias -----------------------------
+
+    # Funcion para redimensionar los elementos UI
+    def gestionPosicionTamaño(self):
+        self.gestionFondo()
+        self.gestionBoton()
+    
+    # Funcion para redimensionar el fondo
+    def gestionFondo(self):
+        pixmap = QPixmap(self.imagenFondoRuta) # Cargar imagen
+        if not pixmap.isNull():
+            pixmapEscalado = pixmap.scaled(
+                self.size(),
+                Qt.KeepAspectRatioByExpanding,
+                Qt.FastTransformation
+            )
+            # Se establece como nueva imagen, la imagen escalada al nuevo tamaño
+            self.labelFondo.setPixmap(pixmapEscalado)
+            self.labelFondo.setGeometry(0, 0, self.width(), self.height())
+
+    # Funcion para redimensionar el boton
+    def gestionBoton(self):
+        anchoVentana = self.width()
+        altoVentana  = self.height()
+
+        # Los factores son las relaciones entre los tamaños minimos y actual
+        factorAncho = anchoVentana / self.anchoPantallaMinimo
+        factorAlto  = altoVentana  / self.altoPantallaMinimo
+        factorEscala = min(factorAncho, factorAlto)
+
+        nuevoAnchoBoton = max(self.anchoBotonMinimo, int(self.anchoBotonMinimo * factorEscala))
+        nuevoAltoBoton  = max(self.altoBotonMinimo,  int(self.altoBotonMinimo  * factorEscala))
+        nuevoMargen = int(self.margenBotonMinimo * factorEscala)
+        
+        # Escalar pixmaps de la clase BotonImagen
+        self.botonCsv.pixmapBase = self.botonCsv.pixmapBase.scaled(
+            nuevoAnchoBoton, nuevoAltoBoton, Qt.KeepAspectRatioByExpanding, Qt.FastTransformation
+        )
+        self.botonCsv.pixmapHover = self.botonCsv.pixmapHover.scaled(
+            nuevoAnchoBoton, nuevoAltoBoton, Qt.KeepAspectRatioByExpanding, Qt.FastTransformation
+        )
+        self.botonCsv.pixmapClick = self.botonCsv.pixmapClick.scaled(
+            nuevoAnchoBoton, nuevoAltoBoton, Qt.KeepAspectRatioByExpanding, Qt.FastTransformation
+        )
+        
+        # Actualiza la imagen actual para que coincida con el estado
+        self.botonCsv.setPixmap(self.botonCsv.pixmapBase)
+
+        # Actualizar la imagen hasta la esquina derecha inferior
+        xPosBoton = anchoVentana - nuevoAnchoBoton - nuevoMargen
+        yPosBoton = altoVentana  - nuevoAltoBoton  - nuevoMargen
+
+        self.botonCsv.setGeometry(xPosBoton, yPosBoton, nuevoAnchoBoton, nuevoAltoBoton)
+
+    # Funcion para añadirle funcionalidad al boton CSV
+    def botonCsvClic(self):
+        self.abrirDialogoCsv()
+        
+    # Funcion que gestiona el archivo CSV del usuario
+    def abrirDialogoCsv(self):
+        rutaArchivo, _ = QFileDialog.getOpenFileName(
+            self,
+            "Selecciona tu archivo CSV",
+            "",
+            "Archivos CSV (*.csv);;Todos los archivos (*)"
+        )
+        if rutaArchivo:
+            print("Archivo CSV seleccionado:", rutaArchivo)
+            # Añadir verificacion de archivo
+            if verificarCsv(rutaArchivo) : self.iniciarPantallaCarga()
+
+    # Funcion para verificar que el archivo csv este correcto
+    def verificarCsv(self, archivo):
+        columnasRequeridas = {'NRC', 'Clave Materia', 'Hola'}
+
+    # Funcion para iniciar la pantalla de carga
+    def iniciarPantallaCarga(self):
+        # Ocultar los elementos actuales
+        self.botonCsv.hide()
+        self.labelFondo.hide()
+
+        # Metodo interno de la pantalla de carga
+        self.pantallaCarga.iniciar()
+
+        # Proceso PlaceHolder
+        self.proceso = trabajoPlaceHolder()
+        self.proceso.terminado.connect(self.detenerPantallaCarga) # Le decimos que cuando termine, mande a llamar a la funcion
+        self.proceso.start()
+        
+    # Funcion para detener la pantalla de carga
+    def detenerPantallaCarga(self):
+        self.pantallaCarga.detener()
+
+        # Llamar a la pantalla principal
+        #self.pantallaPrincipal.iniciar()
+        
+# ----------------------------- Main ------------------------------ | ------------------------------------------------------------
+def main():
+    app = QApplication(sys.argv)
+    inicio = PantallaInicio()
+    inicio.show()
+    sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    main()
+

@@ -1,0 +1,13 @@
+# Visualizacion
+
+Los principales programas de visualziacion fueron reaziados por PyQt5 ademas de pyscopg2-binary, adicionalmete una serie de recursos graficos estilo pixel art.
+
+Explicacion por archivos:
+
+'cu2map.py'
+
+'algo.py'
+
+'dataExplore.py' Un pequeño script hecho para explorar un archivo csv
+
+'dataPreOpt.csv' El horario que no ha sido pasado por nuestro optimizador.

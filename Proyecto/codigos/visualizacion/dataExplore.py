@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Ruta del archivo
-data = 'raw_data/PA CU2 2024Otono.xlsx'
+data = '' # Broken root, change it
 
 # Leer la hoja (puedes especificar `sheet_name` si conoces el nombre)
 df = pd.read_excel(data)

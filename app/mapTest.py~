@@ -1,0 +1,425 @@
+import sys
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QGraphicsView, QGraphicsScene,
+                            QGraphicsRectItem, QVBoxLayout, QWidget, QLabel,
+                            QPushButton, QGraphicsSimpleTextItem, QHBoxLayout,
+                            QGridLayout, QSizePolicy, QGraphicsProxyWidget)
+from PyQt5.QtGui import QColor, QBrush, QFont, QPen, QPolygonF, QPainter
+from PyQt5.QtCore import Qt, QPointF, QRectF
+
+
+from PyQt5.QtWidgets import QGraphicsLineItem  # Añade esto con los demás imports
+
+class Aula:
+    def __init__(self, nombre, capacidad, edificio, posicion, dimensiones, piso):
+        self.nombre = nombre
+        self.capacidad = capacidad
+        self.edificio = edificio
+        self.posicion = posicion    # (x, y)
+        self.dimensiones = dimensiones # (w, h)
+        self.piso = piso
+        self.detalles = f"Aula {nombre}\nCapacidad: {capacidad} alumnos\nPiso: {piso}"
+
+class Edificio:
+    def __init__(self, nombre, posicion, dimensiones, area, aulas=None):
+        self.nombre = nombre
+        self.posicion = posicion    # (x, y)
+        self.dimensiones = dimensiones # (w, h)
+        self.area = area        # 1 o 2 (área del campus)
+        self.aulas = aulas if aulas else []
+    
+    def agregarAula(self, aula):
+        self.aulas.append(aula)
+    
+    def obtenerAulasPorPiso(self, piso):
+        return [aula for aula in self.aulas if aula.piso == piso]
+
+class MapaCampus(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        
+        self.anchoPantallaMinimo = 1200
+        self.altoPantallaMinimo = 800
+        
+        self.setWindowTitle("Mapa Interactivo del Campus")
+        self.setMinimumSize(self.anchoPantallaMinimo, self.altoPantallaMinimo)
+        
+        # Configuración de datos
+        self.edificios = []
+        self.edificiosPrueba()
+        
+        # Configuración de la interfaz
+        self.vistaActual = 'campus'  # 'campus' o 'edificio'
+        self.edificioActual = None
+        self.areaActual = 1  # 1 o 2
+        self.pisoActual = 1  # Piso actual al ver un edificio
+        
+        self.initUI()
+    
+    def edificiosPrueba(self):
+        # Área 1
+        edificio_a = Edificio("Edificio A", (150, 100), (120, 180), 1)
+        edificio_a.agregarAula(Aula("A101", 30, "Edificio A", (10, 10), (40, 30), 1))
+        edificio_a.agregarAula(Aula("A102", 25, "Edificio A", (60, 10), (40, 30), 1))
+        edificio_a.agregarAula(Aula("A201", 40, "Edificio A", (10, 60), (40, 30), 2))
+        edificio_a.agregarAula(Aula("A202", 35, "Edificio A", (60, 60), (40, 30), 2))
+        self.edificios.append(edificio_a)
+        
+        edificio_b = Edificio("Edificio B", (350, 120), (150, 160), 1)
+        edificio_b.agregarAula(Aula("B101", 35, "Edificio B", (10, 10), (50, 35), 1))
+        edificio_b.agregarAula(Aula("B102", 28, "Edificio B", (70, 10), (50, 35), 1))
+        edificio_b.agregarAula(Aula("B201", 45, "Edificio B", (10, 60), (50, 35), 2))
+        self.edificios.append(edificio_b)
+        
+        # Área 2
+        edificio_c = Edificio("Edificio C", (200, 100), (180, 200), 2)
+        edificio_c.agregarAula(Aula("C101", 50, "Edificio C", (20, 20), (60, 40), 1))
+        edificio_c.agregarAula(Aula("C102", 45, "Edificio C", (90, 20), (60, 40), 1))
+        edificio_c.agregarAula(Aula("C201", 30, "Edificio C", (20, 80), (60, 40), 2))
+        self.edificios.append(edificio_c)
+        
+        edificio_d = Edificio("Edificio D", (450, 80), (200, 180), 2)
+        edificio_d.agregarAula(Aula("D101", 60, "Edificio D", (20, 20), (70, 45), 1))
+        edificio_d.agregarAula(Aula("D201", 40, "Edificio D", (20, 80), (70, 45), 2))
+        edificio_d.agregarAula(Aula("D202", 35, "Edificio D", (100, 80), (70, 45), 2))
+        self.edificios.append(edificio_d)
+    
+    def initUI(self):
+        # Widget principal con layout horizontal
+        widget_principal = QWidget()
+        layout_principal = QHBoxLayout(widget_principal)
+        layout_principal.setContentsMargins(0, 0, 0, 0)
+        layout_principal.setSpacing(0)
+        
+        # Contenedor para el mapa y controles (80%)
+        contenedor_mapa = QWidget()
+        layout_mapa = QGridLayout(contenedor_mapa)
+        layout_mapa.setContentsMargins(0, 0, 0, 0)
+        layout_mapa.setSpacing(0)
+        
+        # Vista del mapa
+        self.vistaMapa = QGraphicsView()
+        self.vistaMapa.setRenderHint(QPainter.Antialiasing)
+        self.escenaMapa = QGraphicsScene()
+        self.vistaMapa.setScene(self.escenaMapa)
+        
+        # Añadir vista al layout (centro)
+        layout_mapa.addWidget(self.vistaMapa, 1, 1)
+        
+        # Controles de navegación
+        self.btnVolver = QPushButton("Volver")
+        self.btnVolver.setFixedSize(80, 30)
+        self.btnVolver.clicked.connect(self.mostrarVistaCampus)
+        self.btnVolver.setVisible(False)
+        layout_mapa.addWidget(self.btnVolver, 0, 0, Qt.AlignLeft | Qt.AlignTop)
+        
+        self.btnArriba = QPushButton("↑")
+        self.btnArriba.setFixedSize(40, 40)
+        self.btnArriba.clicked.connect(lambda: self.cambiarPiso(1))
+        self.btnArriba.setVisible(False)
+        layout_mapa.addWidget(self.btnArriba, 0, 1, Qt.AlignRight | Qt.AlignTop)
+        
+        self.btnAbajo = QPushButton("↓")
+        self.btnAbajo.setFixedSize(40, 40)
+        self.btnAbajo.clicked.connect(lambda: self.cambiarPiso(-1))
+        self.btnAbajo.setVisible(False)
+        layout_mapa.addWidget(self.btnAbajo, 2, 1, Qt.AlignRight | Qt.AlignBottom)
+        
+        self.btnIzquierda = QPushButton("←")
+        self.btnIzquierda.setFixedSize(40, 40)
+        self.btnIzquierda.clicked.connect(self.cambiarAreaIzquierda)
+        layout_mapa.addWidget(self.btnIzquierda, 1, 0, Qt.AlignLeft | Qt.AlignVCenter)
+        
+        self.btnDerecha = QPushButton("→")
+        self.btnDerecha.setFixedSize(40, 40)
+        self.btnDerecha.clicked.connect(self.cambiarAreaDerecha)
+        layout_mapa.addWidget(self.btnDerecha, 1, 2, Qt.AlignRight | Qt.AlignVCenter)
+        
+        # Configurar tamaños de las filas y columnas
+        layout_mapa.setRowStretch(0, 1)
+        layout_mapa.setRowStretch(1, 8)
+        layout_mapa.setRowStretch(2, 1)
+        layout_mapa.setColumnStretch(0, 1)
+        layout_mapa.setColumnStretch(1, 8)
+        layout_mapa.setColumnStretch(2, 1)
+        
+        # Panel de información (20%)
+        panel_info = QWidget()
+        layout_info = QVBoxLayout(panel_info)
+        layout_info.setContentsMargins(10, 10, 10, 10)
+        
+        self.etiquetaTitulo = QLabel("Mapa del Campus")
+        self.etiquetaTitulo.setFont(QFont("Arial", 14, QFont.Bold))
+        layout_info.addWidget(self.etiquetaTitulo)
+        
+        self.etiquetaDetalles = QLabel("Seleccione un edificio o aula para ver detalles")
+        self.etiquetaDetalles.setWordWrap(True)
+        layout_info.addWidget(self.etiquetaDetalles)
+        
+        self.botonHorario = QPushButton("Ver horario del aula")
+        self.botonHorario.setEnabled(False)
+        layout_info.addWidget(self.botonHorario)
+        
+        self.botonRecursos = QPushButton("Recursos disponibles")
+        self.botonRecursos.setEnabled(False)
+        layout_info.addWidget(self.botonRecursos)
+        
+        layout_info.addStretch()
+        
+        # Organizar layout principal
+        layout_principal.addWidget(contenedor_mapa, 80)
+        layout_principal.addWidget(panel_info, 20)
+        
+        self.setCentralWidget(widget_principal)
+        
+        # Estilos
+        self.setStyleSheet("""
+            QPushButton {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                min-width: 40px;
+                min-height: 40px;
+                font-size: 16px;
+            }
+            QPushButton:hover {
+                background-color: #45a049;
+            }
+            #btnVolver {
+                background-color: #f44336;
+            }
+            #btnVolver:hover {
+                background-color: #d32f2f;
+            }
+        """)
+        
+        # Mostrar vista inicial
+        self.mostrarVistaCampus()
+    
+    def mostrarVistaCampus(self):
+        self.vistaActual = 'campus'
+        self.edificioActual = None
+        self.escenaMapa.clear()
+        
+        # Configurar controles
+        self.etiquetaTitulo.setText(f"Mapa del Campus - Área {self.areaActual}")
+        self.etiquetaDetalles.setText("Seleccione un edificio para ver más detalles")
+        self.btnVolver.setVisible(False)
+        self.btnArriba.setVisible(False)
+        self.btnAbajo.setVisible(False)
+        self.botonHorario.setEnabled(False)
+        self.botonRecursos.setEnabled(False)
+        
+        # Mostrar flechas de navegación entre áreas
+        if self.areaActual == 1:
+            self.btnDerecha.setVisible(True)
+            self.btnIzquierda.setVisible(False)
+        else:
+            self.btnDerecha.setVisible(False)
+            self.btnIzquierda.setVisible(True)
+        
+        # Dibujar fondo (simulando mapa)
+        fondo = QGraphicsRectItem(0, 0, 700, 500)
+        fondo.setBrush(QBrush(QColor(200, 230, 200)))
+        self.escenaMapa.addItem(fondo)
+        
+        # Dibujar solo edificios del área actual
+        for edificio in [e for e in self.edificios if e.area == self.areaActual]:
+            rect_edificio = QGraphicsRectItem(
+                edificio.posicion[0], edificio.posicion[1],
+                edificio.dimensiones[0], edificio.dimensiones[1]
+            )
+            rect_edificio.setBrush(QBrush(QColor(70, 130, 180)))
+            rect_edificio.setPen(QPen(Qt.black, 1))
+            rect_edificio.setData(0, edificio)
+            
+            # Texto del edificio
+            texto_edificio = QGraphicsSimpleTextItem(edificio.nombre, rect_edificio)
+            texto_edificio.setPos(
+                edificio.posicion[0] + 10,
+                edificio.posicion[1] + edificio.dimensiones[1]/2 - 10
+            )
+            texto_edificio.setBrush(QBrush(Qt.white))
+            
+            self.escenaMapa.addItem(rect_edificio)
+            
+            # Conectar evento de clic
+            rect_edificio.setFlag(QGraphicsRectItem.ItemIsSelectable)
+            rect_edificio.mousePressEvent = lambda event, e=edificio: self.edificioClicado(event, e)
+
+        # Lineas pruba
+        # Dibujar fondo (simulando mapa)
+        fondo = QGraphicsRectItem(0, 0, 700, 500)
+        fondo.setBrush(QBrush(QColor(200, 230, 200)))
+        self.escenaMapa.addItem(fondo)
+        
+        # Añade estas líneas para dibujar la cuadrícula
+        for x in range(0, 701, 50):  # Líneas verticales cada 50px
+            linea = QGraphicsLineItem(x, 0, x, 500)
+            linea.setPen(QPen(QColor(150, 180, 150), 0.5))
+            self.escenaMapa.addItem(linea)
+            
+            for y in range(0, 501, 50):  # Líneas horizontales cada 50px
+                linea = QGraphicsLineItem(0, y, 700, y)
+                linea.setPen(QPen(QColor(150, 180, 150), 0.5))
+                self.escenaMapa.addItem(linea)
+            
+        # Ajustar vista
+        self.vistaMapa.fitInView(self.escenaMapa.sceneRect(), Qt.KeepAspectRatio)
+    
+    def edificioClicado(self, event, edificio):
+        self.vistaActual = 'edificio'
+        self.edificioActual = edificio
+        self.pisoActual = 1
+        self.escenaMapa.clear()
+        
+        # Configurar controles
+        self.etiquetaTitulo.setText(f"Edificio {edificio.nombre}")
+        self.etiquetaDetalles.setText(
+            f"Edificio {edificio.nombre}\n\n"
+            f"Aulas totales: {len(edificio.aulas)}\n"
+            f"Aulas en piso {self.pisoActual}: {len(edificio.obtenerAulasPorPiso(self.pisoActual))}"
+        )
+        self.btnVolver.setVisible(True)
+        self.btnArriba.setVisible(True)
+        self.btnAbajo.setVisible(True)
+        self.btnIzquierda.setVisible(False)
+        self.btnDerecha.setVisible(False)
+        self.botonHorario.setEnabled(True)
+        self.botonRecursos.setEnabled(False)
+        
+        # Dibujar plano del edificio
+        fondo = QGraphicsRectItem(0, 0, 700, 500)
+        fondo.setBrush(QBrush(QColor(240, 240, 240)))
+        self.escenaMapa.addItem(fondo)
+
+        # Dibujar plano del edificio
+        fondo = QGraphicsRectItem(0, 0, 700, 500)
+        fondo.setBrush(QBrush(QColor(240, 240, 240)))
+        self.escenaMapa.addItem(fondo)
+    
+        # Añade estas líneas para dibujar la cuadrícula
+        for x in range(0, 701, 40):  # Líneas verticales cada 40px
+            linea = QGraphicsLineItem(x, 0, x, 500)
+            linea.setPen(QPen(QColor(200, 200, 200), 0.5))
+            self.escenaMapa.addItem(linea)
+    
+            for y in range(0, 501, 40):  # Líneas horizontales cada 40px
+                linea = QGraphicsLineItem(0, y, 700, y)
+                linea.setPen(QPen(QColor(200, 200, 200), 0.5))
+                self.escenaMapa.addItem(linea)
+        
+        # Dibujar aulas del piso actual
+        self.dibujarAulasEdificio()
+        
+        # Añadir título del edificio
+        titulo = QGraphicsSimpleTextItem(f"Plano del {edificio.nombre} - Piso {self.pisoActual}")
+        titulo.setPos(250, 20)
+        titulo.setFont(QFont("Arial", 16, QFont.Bold))
+        self.escenaMapa.addItem(titulo)
+        
+        # Ajustar vista
+        self.vistaMapa.fitInView(self.escenaMapa.sceneRect(), Qt.KeepAspectRatio)
+    
+    def dibujarAulasEdificio(self):
+        if not self.edificioActual:
+            return
+        
+        # Dibujar solo aulas del piso actual
+        for aula in self.edificioActual.obtenerAulasPorPiso(self.pisoActual):
+            rect_aula = QGraphicsRectItem(
+                aula.posicion[0] + 100,  # Offset para centrar
+                aula.posicion[1] + 100,
+                aula.dimensiones[0],
+                aula.dimensiones[1]
+            )
+            rect_aula.setBrush(QBrush(QColor(100, 150, 200)))
+            rect_aula.setPen(QPen(Qt.black, 1))
+            rect_aula.setData(0, aula)
+            
+            # Texto del aula
+            texto_aula = QGraphicsSimpleTextItem(aula.nombre, rect_aula)
+            texto_aula.setPos(
+                aula.posicion[0] + 100 + 5,
+                aula.posicion[1] + 100 + aula.dimensiones[1]/2 - 5
+            )
+            texto_aula.setBrush(QBrush(Qt.white))
+            
+            self.escenaMapa.addItem(rect_aula)
+            
+            # Conectar evento de clic
+            rect_aula.setFlag(QGraphicsRectItem.ItemIsSelectable)
+            rect_aula.mousePressEvent = lambda event, a=aula: self.aulaClicada(event, a)
+    
+    def aulaClicada(self, event, aula):
+        # Actualizar panel de información
+        self.etiquetaDetalles.setText(
+            f"Aula: {aula.nombre}\n"
+            f"Edificio: {aula.edificio}\n"
+            f"Piso: {aula.piso}\n"
+            f"Capacidad: {aula.capacidad} alumnos\n\n"
+            f"Detalles adicionales pueden mostrarse aquí."
+        )
+        self.botonRecursos.setEnabled(True)
+        
+        # Resaltar el aula seleccionada
+        for item in self.escenaMapa.items():
+            if isinstance(item, QGraphicsRectItem) and item.data(0) == aula:
+                item.setBrush(QBrush(QColor(200, 100, 100)))
+            elif isinstance(item, QGraphicsRectItem) and isinstance(item.data(0), Aula):
+                item.setBrush(QBrush(QColor(100, 150, 200)))
+    
+    def cambiarPiso(self, direccion):
+        if not self.edificioActual:
+            return
+        
+        nuevo_piso = self.pisoActual + direccion
+        
+        # Verificar que el piso existe
+        aulas_piso = self.edificioActual.obtenerAulasPorPiso(nuevo_piso)
+        if not aulas_piso:
+            return  # No hay aulas en ese piso
+        
+        self.pisoActual = nuevo_piso
+        
+        # Limpiar y volver a dibujar
+        items = list(self.escenaMapa.items())
+        for item in items:
+            if isinstance(item, QGraphicsSimpleTextItem) and "Plano del" in item.text():
+                self.escenaMapa.removeItem(item)
+            elif isinstance(item, QGraphicsRectItem) and isinstance(item.data(0), Aula):
+                self.escenaMapa.removeItem(item)
+        
+        # Actualizar información
+        self.etiquetaDetalles.setText(
+            f"Edificio {self.edificioActual.nombre}\n\n"
+            f"Aulas totales: {len(self.edificioActual.aulas)}\n"
+            f"Aulas en piso {self.pisoActual}: {len(aulas_piso)}"
+        )
+        
+        # Dibujar aulas del nuevo piso
+        self.dibujarAulasEdificio()
+        
+        # Añadir título actualizado
+        titulo = QGraphicsSimpleTextItem(f"Plano del {self.edificioActual.nombre} - Piso {self.pisoActual}")
+        titulo.setPos(250, 20)
+        titulo.setFont(QFont("Arial", 16, QFont.Bold))
+        self.escenaMapa.addItem(titulo)
+    
+    def cambiarAreaDerecha(self):
+        self.areaActual = 2
+        self.mostrarVistaCampus()
+    
+    def cambiarAreaIzquierda(self):
+        self.areaActual = 1
+        self.mostrarVistaCampus()
+    
+    def resizeEvent(self, event):
+        if hasattr(self, 'escenaMapa') and self.escenaMapa.items():
+            self.vistaMapa.fitInView(self.escenaMapa.sceneRect(), Qt.KeepAspectRatio)
+        super().resizeEvent(event)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    ventana = MapaCampus()
+    ventana.show()
+    sys.exit(app.exec_())

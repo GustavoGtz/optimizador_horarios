@@ -1,0 +1,50 @@
+
+
+class Aula:
+    def __init__(self, nombre, capacidad, edificio, posicion, dimensiones, piso):
+        self.nombre      = nombre
+        self.capacidad   = capacidad
+        self.posicion    = posicion    # ( x, y )
+        self.dimensiones = dimensiones # ( w, h )
+        self.piso        = piso
+
+class Edificio:
+    def __init__(self, nombre, posicion, dimensiones, area ,aulas=None):
+        self.nombre      = nombre
+        self.posicion    = posicion    # ( x, y )
+        self.dimensiones = dimensiones # ( w, h )
+        self.area        = area        # 1 o 2 (area del campus)
+        self.aulas       = aulas if aulas else []
+
+    def agregarAula(self, aula):
+        self.aulas.append(aula)
+
+class MapaCampus(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.anchoPantallaMinimo = 800
+        self.altoPantallaMinimo  = 450
+        
+        self.setWindowTitle("Prueba Mapa Interactivo")
+        self.setMinimumSize(self.anchoPantallaMinimo, self.altoPantallaMinimo)
+
+        # Edificios
+        self.edificios = None
+        self.edificiosPrueba() # Actualmente es asi pero despues de obtendra de forma dinamica
+
+        # Configuracion de la interfaz
+        self.vistaActual = 'campus'
+        self.edificioActual = None
+
+        
+        
+                
+
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    ventana = MapaCampus()
+    ventana.show()
+    sys.exit(app.exec_())
