@@ -1,0 +1,29 @@
+# Supuestos y Ajustes del Modelo de Horarios BUAP
+
+A continuación se enumeran los supuestos y ajustes considerados en el modelo:
+
+## 1. Supuestos generales
+
+1. Todos los cursos serán **presenciales**.
+2. Las clases se imparten **íntegramente en un mismo espacio físico**.  
+   - No hay cambio de aula durante una misma clase.
+3. **No se reserva tiempo para limpieza** entre clases.
+4. Los profesores trabajan de **lunes a viernes**, y sus horas dependen de su tipo de contrato:
+   - Tiempo completo: 20 horas.
+   - Medio tiempo: 20 horas.
+   - Horas sueltas: máximo 30 horas.
+5. Se **ignora el tiempo de traslado entre campus** (se asume que no existe).
+6. Solo se consideran clases a **nivel licenciatura/ingeniería**.
+7. El llenado de horarios **comienza por la mañana** (preferencia por primeras horas).
+8. El modelo considera **únicamente el campus CU2**.
+9. El semestre considerado es **Otoño**, con horario de clases de **8:00 a 18:00 horas**.
+
+## 2. Ajustes técnicos
+
+10. Se cambió el identificador `EM10` por `EMA10`.
+11. Se implementó el **diseño de bloques** (agrupación de materias por semestre).
+12. Se asignaron horas específicas según tipo de profesor:
+    - 222 horas para profesores con clave `COL`.
+    - 333 horas para profesores con clave `NSS`.
+13. Los profesores con **múltiples IDs fueron combinados** en uno solo.
+14. Se asumió que **todos los profesores están disponibles todo el día**, sin restricciones horarias individuales.
