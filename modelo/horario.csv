@@ -1,223 +1,223 @@
 ,Profesor,Materia,Día,HoraInicio,HoraFin,HoraNum,DiaNum
-0,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Lunes,08:00,09:00,1,1
-1,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Lunes,09:00,10:00,2,1
-2,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Lunes,10:00,11:00,3,1
-3,AYALA - ROJAS JUAN LEONARDO,Investigación para la Arquitec,Martes,08:00,09:00,1,2
-4,AYALA - ROJAS JUAN LEONARDO,Investigación para la Arquitec,Martes,09:00,10:00,2,2
-5,AYALA - ROJAS JUAN LEONARDO,Investigación para la Arquitec,Martes,17:00,18:00,10,2
-6,CRUZ - ALMANZA GRACIANO,Programación Básica,Martes,08:00,09:00,1,2
-7,CRUZ - ALMANZA GRACIANO,Programación Básica,Jueves,08:00,09:00,1,4
-8,CRUZ - ALMANZA GRACIANO,Programación Básica,Viernes,08:00,09:00,1,5
-9,CRUZ - ALMANZA GRACIANO,Programación Básica,Jueves,17:00,18:00,10,4
-10,CRUZ - ALMANZA GRACIANO,Programación Básica,Viernes,17:00,18:00,10,5
-11,MORENO - BARBOSA FERNANDO,Matematicas Elementales,Lunes,08:00,09:00,1,1
-12,MORENO - BARBOSA FERNANDO,Matematicas Elementales,Martes,08:00,09:00,1,2
-13,MORENO - BARBOSA FERNANDO,Matematicas Elementales,Lunes,09:00,10:00,2,1
-14,MORENO - BARBOSA FERNANDO,Matematicas Elementales,Martes,09:00,10:00,2,2
-15,MORENO - BARBOSA FERNANDO,Matematicas Elementales,Lunes,17:00,18:00,10,1
-16,GARCIA - SALGADO GODOFREDO,Mecanica,Lunes,08:00,09:00,1,1
-17,GARCIA - SALGADO GODOFREDO,Mecanica,Martes,08:00,09:00,1,2
-18,GARCIA - SALGADO GODOFREDO,Mecanica,Jueves,08:00,09:00,1,4
-19,GARCIA - SALGADO GODOFREDO,Mecanica,Viernes,08:00,09:00,1,5
-20,GARCIA - SALGADO GODOFREDO,Mecanica,Jueves,09:00,10:00,2,4
-21,RUIZ - TENORIO JOSE ANTONIO,Matem. para la Arquitectura I,Lunes,08:00,09:00,1,1
-22,RUIZ - TENORIO JOSE ANTONIO,Matem. para la Arquitectura I,Jueves,08:00,09:00,1,4
-23,RUIZ - TENORIO JOSE ANTONIO,Matem. para la Arquitectura I,Lunes,09:00,10:00,2,1
-24,RUIZ - TENORIO JOSE ANTONIO,Matem. para la Arquitectura I,Lunes,17:00,18:00,10,1
-25,RAMIREZ - MENDOZA MARCELINO,Dibujo I,Lunes,08:00,09:00,1,1
-26,RAMIREZ - MENDOZA MARCELINO,Dibujo I,Jueves,08:00,09:00,1,4
-27,RAMIREZ - MENDOZA MARCELINO,Dibujo I,Lunes,09:00,10:00,2,1
-28,RAMIREZ - MENDOZA MARCELINO,Dibujo I,Lunes,10:00,11:00,3,1
-29,HERNANDEZ - DE LA LUZ JOSE ALVARO,Matematicas Universitarias I,Lunes,08:00,09:00,1,1
-30,HERNANDEZ - DE LA LUZ JOSE ALVARO,Matematicas Universitarias I,Miércoles,08:00,09:00,1,3
-31,HERNANDEZ - DE LA LUZ JOSE ALVARO,Matematicas Universitarias I,Jueves,08:00,09:00,1,4
-32,HERNANDEZ - DE LA LUZ JOSE ALVARO,Matematicas Universitarias I,Lunes,09:00,10:00,2,1
-33,HERNANDEZ - DE LA LUZ JOSE ALVARO,Matematicas Universitarias I,Jueves,17:00,18:00,10,4
-34,LEMBRINO - PEREZ IMELDA LUZ,Introducción a la FGU,Lunes,08:00,09:00,1,1
-35,LEMBRINO - PEREZ IMELDA LUZ,Introducción a la FGU,Lunes,09:00,10:00,2,1
-36,LEMBRINO - PEREZ IMELDA LUZ,Introducción a la FGU,Lunes,17:00,18:00,10,1
-37,ALONSO - PEREZ CARLOS,Hist. y Tendencias Urbano Arq.,Lunes,08:00,09:00,1,1
-38,ALONSO - PEREZ CARLOS,Hist. y Tendencias Urbano Arq.,Viernes,08:00,09:00,1,5
-39,ALONSO - PEREZ CARLOS,Hist. y Tendencias Urbano Arq.,Lunes,09:00,10:00,2,1
-40,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Viernes,14:00,15:00,7,5
-41,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Lunes,15:00,16:00,8,1
-42,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Viernes,15:00,16:00,8,5
-43,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Viernes,16:00,17:00,9,5
-44,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Martes,08:00,09:00,1,2
-45,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Miércoles,08:00,09:00,1,3
-46,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Jueves,08:00,09:00,1,4
-47,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Martes,09:00,10:00,2,2
-48,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Miércoles,09:00,10:00,2,3
-49,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Jueves,09:00,10:00,2,4
-50,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Lunes,08:00,09:00,1,1
-51,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Martes,08:00,09:00,1,2
-52,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Lunes,09:00,10:00,2,1
-53,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Martes,09:00,10:00,2,2
-54,ARGUELLO - MORALES MARCOS,Color,Miércoles,08:00,09:00,1,3
-55,ARGUELLO - MORALES MARCOS,Color,Jueves,08:00,09:00,1,4
-56,ARGUELLO - MORALES MARCOS,Color,Viernes,08:00,09:00,1,5
-57,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Miércoles,08:00,09:00,1,3
-58,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Jueves,08:00,09:00,1,4
-59,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Viernes,08:00,09:00,1,5
-60,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Lunes,08:00,09:00,1,1
-61,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Viernes,08:00,09:00,1,5
-62,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Lunes,09:00,10:00,2,1
-63,GARCIA - TAMAYO ROSA,Álgebra Superior,Lunes,08:00,09:00,1,1
-64,GARCIA - TAMAYO ROSA,Álgebra Superior,Lunes,09:00,10:00,2,1
-65,GARCIA - TAMAYO ROSA,Álgebra Superior,Viernes,16:00,17:00,9,5
-66,GARCIA - TAMAYO ROSA,Álgebra Superior,Lunes,17:00,18:00,10,1
-67,GARCIA - TAMAYO ROSA,Álgebra Superior,Viernes,17:00,18:00,10,5
-68,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Jueves,13:00,14:00,6,4
-69,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Viernes,13:00,14:00,6,5
-70,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Jueves,14:00,15:00,7,4
-71,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Viernes,14:00,15:00,7,5
-72,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Jueves,15:00,16:00,8,4
-73,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Miércoles,09:00,10:00,2,3
-74,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Lunes,10:00,11:00,3,1
-75,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Miércoles,10:00,11:00,3,3
-76,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Lunes,11:00,12:00,4,1
-77,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Lunes,12:00,13:00,5,1
-78,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Martes,08:00,09:00,1,2
-79,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Miércoles,08:00,09:00,1,3
-80,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Jueves,08:00,09:00,1,4
-81,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Viernes,08:00,09:00,1,5
-82,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Lunes,13:00,14:00,6,1
-83,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Lunes,08:00,09:00,1,1
-84,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Martes,08:00,09:00,1,2
-85,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Miércoles,08:00,09:00,1,3
-86,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Jueves,08:00,09:00,1,4
-87,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Viernes,08:00,09:00,1,5
-88,ProfFicticio_0,Biomatematicas I,Lunes,08:00,09:00,1,1
-89,ProfFicticio_0,Biomatematicas I,Martes,08:00,09:00,1,2
-90,ProfFicticio_0,Biomatematicas I,Miércoles,08:00,09:00,1,3
-91,ProfFicticio_0,Biomatematicas I,Jueves,08:00,09:00,1,4
-92,ProfFicticio_0,Biomatematicas I,Viernes,08:00,09:00,1,5
-93,ProfFicticio_0,Biomatematicas I,Jueves,09:00,10:00,2,4
-94,ProfFicticio_0,Biomatematicas I,Viernes,09:00,10:00,2,5
-95,ProfFicticio_1,Quimica General,Lunes,08:00,09:00,1,1
-96,ProfFicticio_1,Quimica General,Martes,08:00,09:00,1,2
-97,ProfFicticio_1,Quimica General,Miércoles,08:00,09:00,1,3
-98,ProfFicticio_1,Quimica General,Jueves,08:00,09:00,1,4
-99,ProfFicticio_1,Quimica General,Viernes,08:00,09:00,1,5
-100,ProfFicticio_1,Quimica General,Jueves,09:00,10:00,2,4
-101,ProfFicticio_1,Quimica General,Viernes,09:00,10:00,2,5
+0,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Martes,15:00,16:00,8,2
+1,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Martes,16:00,17:00,9,2
+2,AYALA - ROJAS JUAN LEONARDO,Teoría de la Arquitectura,Martes,17:00,18:00,10,2
+3,AYALA - ROJAS JUAN LEONARDO,Hist. y Tendencias Urbano Arq.,Lunes,11:00,12:00,4,1
+4,AYALA - ROJAS JUAN LEONARDO,Hist. y Tendencias Urbano Arq.,Lunes,12:00,13:00,5,1
+5,AYALA - ROJAS JUAN LEONARDO,Hist. y Tendencias Urbano Arq.,Lunes,13:00,14:00,6,1
+6,CRUZ - ALMANZA GRACIANO,Programación Básica,Viernes,13:00,14:00,6,5
+7,CRUZ - ALMANZA GRACIANO,Programación Básica,Viernes,14:00,15:00,7,5
+8,CRUZ - ALMANZA GRACIANO,Programación Básica,Viernes,15:00,16:00,8,5
+9,CRUZ - ALMANZA GRACIANO,Programación Básica,Lunes,16:00,17:00,9,1
+10,CRUZ - ALMANZA GRACIANO,Programación Básica,Lunes,17:00,18:00,10,1
+11,GARCIA - SALGADO GODOFREDO,Mecanica,Viernes,13:00,14:00,6,5
+12,GARCIA - SALGADO GODOFREDO,Mecanica,Viernes,14:00,15:00,7,5
+13,GARCIA - SALGADO GODOFREDO,Mecanica,Viernes,15:00,16:00,8,5
+14,GARCIA - SALGADO GODOFREDO,Mecanica,Jueves,16:00,17:00,9,4
+15,GARCIA - SALGADO GODOFREDO,Mecanica,Jueves,17:00,18:00,10,4
+16,MEJIA - GOMEZ MARIA ROSA,Introducción a la FGU,Martes,08:00,09:00,1,2
+17,MEJIA - GOMEZ MARIA ROSA,Introducción a la FGU,Martes,09:00,10:00,2,2
+18,MEJIA - GOMEZ MARIA ROSA,Introducción a la FGU,Martes,10:00,11:00,3,2
+19,ALONSO - PEREZ CARLOS,Dibujo I,Martes,08:00,09:00,1,2
+20,ALONSO - PEREZ CARLOS,Dibujo I,Martes,09:00,10:00,2,2
+21,ALONSO - PEREZ CARLOS,Dibujo I,Martes,10:00,11:00,3,2
+22,ALONSO - PEREZ CARLOS,Dibujo I,Jueves,17:00,18:00,10,4
+23,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Lunes,08:00,09:00,1,1
+24,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Lunes,09:00,10:00,2,1
+25,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Lunes,10:00,11:00,3,1
+26,ALONSO - PEREZ CARLOS,Geometría Descriptiva,Martes,11:00,12:00,4,2
+27,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Jueves,12:00,13:00,5,4
+28,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Jueves,13:00,14:00,6,4
+29,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Viernes,13:00,14:00,6,5
+30,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Jueves,14:00,15:00,7,4
+31,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Viernes,14:00,15:00,7,5
+32,ALONSO - PEREZ CARLOS,Taller de Diseño Básico,Viernes,15:00,16:00,8,5
+33,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Lunes,08:00,09:00,1,1
+34,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Viernes,08:00,09:00,1,5
+35,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Lunes,09:00,10:00,2,1
+36,ARGUELLO - MORALES MARCOS,Matemáticas para el Diseño,Lunes,10:00,11:00,3,1
+37,ARGUELLO - MORALES MARCOS,Color,Miércoles,15:00,16:00,8,3
+38,ARGUELLO - MORALES MARCOS,Color,Miércoles,16:00,17:00,9,3
+39,ARGUELLO - MORALES MARCOS,Color,Miércoles,17:00,18:00,10,3
+40,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Lunes,08:00,09:00,1,1
+41,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Lunes,09:00,10:00,2,1
+42,ROSAS - LORANCA MARIA GABRIELA,Expresión Comunicativa,Lunes,10:00,11:00,3,1
+43,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Jueves,15:00,16:00,8,4
+44,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Jueves,16:00,17:00,9,4
+45,GONZALEZ - SANTIAGO NOHELIA,Dibujo e Ilust. Digital Vector,Jueves,17:00,18:00,10,4
+46,GARCIA - TAMAYO ROSA,Álgebra Superior,Jueves,14:00,15:00,7,4
+47,GARCIA - TAMAYO ROSA,Álgebra Superior,Lunes,15:00,16:00,8,1
+48,GARCIA - TAMAYO ROSA,Álgebra Superior,Jueves,15:00,16:00,8,4
+49,GARCIA - TAMAYO ROSA,Álgebra Superior,Lunes,16:00,17:00,9,1
+50,GARCIA - TAMAYO ROSA,Álgebra Superior,Jueves,16:00,17:00,9,4
+51,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Lunes,08:00,09:00,1,1
+52,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Lunes,09:00,10:00,2,1
+53,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Lunes,10:00,11:00,3,1
+54,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Viernes,10:00,11:00,3,5
+55,GARCIA - TAMAYO ROSA,Fundamentos de Matemáticas,Viernes,11:00,12:00,4,5
+56,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Martes,13:00,14:00,6,2
+57,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Miércoles,13:00,14:00,6,3
+58,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Martes,14:00,15:00,7,2
+59,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Miércoles,14:00,15:00,7,3
+60,GARCIA - TAMAYO ROSA,Álgebra Superior Aplicada,Martes,15:00,16:00,8,2
+61,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Jueves,12:00,13:00,5,4
+62,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Jueves,13:00,14:00,6,4
+63,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Viernes,13:00,14:00,6,5
+64,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Viernes,14:00,15:00,7,5
+65,GARCIA - TAMAYO ROSA,Introducción a las Matemáticas,Viernes,15:00,16:00,8,5
+66,MAKAROV - . NYKOLAY,Matematicas Elementales,Jueves,10:00,11:00,3,4
+67,MAKAROV - . NYKOLAY,Matematicas Elementales,Jueves,11:00,12:00,4,4
+68,MAKAROV - . NYKOLAY,Matematicas Elementales,Jueves,12:00,13:00,5,4
+69,MAKAROV - . NYKOLAY,Matematicas Elementales,Martes,14:00,15:00,7,2
+70,MAKAROV - . NYKOLAY,Matematicas Elementales,Martes,15:00,16:00,8,2
+71,CUAPA - CANTO ROSALBA,Investigación para la Arquitec,Martes,08:00,09:00,1,2
+72,CUAPA - CANTO ROSALBA,Investigación para la Arquitec,Martes,09:00,10:00,2,2
+73,CUAPA - CANTO ROSALBA,Investigación para la Arquitec,Martes,10:00,11:00,3,2
+74,CUAPA - CANTO ROSALBA,Matem. para la Arquitectura I,Miércoles,10:00,11:00,3,3
+75,CUAPA - CANTO ROSALBA,Matem. para la Arquitectura I,Viernes,10:00,11:00,3,5
+76,CUAPA - CANTO ROSALBA,Matem. para la Arquitectura I,Miércoles,11:00,12:00,4,3
+77,CUAPA - CANTO ROSALBA,Matem. para la Arquitectura I,Miércoles,12:00,13:00,5,3
+78,MOZO - VARGAS JOSE JUAN MARTIN,Matematicas Universitarias I,Martes,08:00,09:00,1,2
+79,MOZO - VARGAS JOSE JUAN MARTIN,Matematicas Universitarias I,Martes,09:00,10:00,2,2
+80,MOZO - VARGAS JOSE JUAN MARTIN,Matematicas Universitarias I,Martes,10:00,11:00,3,2
+81,MOZO - VARGAS JOSE JUAN MARTIN,Matematicas Universitarias I,Miércoles,11:00,12:00,4,3
+82,MOZO - VARGAS JOSE JUAN MARTIN,Matematicas Universitarias I,Miércoles,12:00,13:00,5,3
+83,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Lunes,13:00,14:00,6,1
+84,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Martes,13:00,14:00,6,2
+85,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Lunes,14:00,15:00,7,1
+86,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Martes,14:00,15:00,7,2
+87,TELLO - ROMO GUILLERMO,Introduccion a la Biologia,Lunes,15:00,16:00,8,1
+88,ProfFicticio_0,Biomatematicas I,Jueves,12:00,13:00,5,4
+89,ProfFicticio_0,Biomatematicas I,Viernes,12:00,13:00,5,5
+90,ProfFicticio_0,Biomatematicas I,Jueves,13:00,14:00,6,4
+91,ProfFicticio_0,Biomatematicas I,Viernes,13:00,14:00,6,5
+92,ProfFicticio_0,Biomatematicas I,Jueves,14:00,15:00,7,4
+93,ProfFicticio_0,Biomatematicas I,Lunes,16:00,17:00,9,1
+94,ProfFicticio_0,Biomatematicas I,Lunes,17:00,18:00,10,1
+95,ProfFicticio_1,Quimica General,Miércoles,09:00,10:00,2,3
+96,ProfFicticio_1,Quimica General,Jueves,09:00,10:00,2,4
+97,ProfFicticio_1,Quimica General,Jueves,10:00,11:00,3,4
+98,ProfFicticio_1,Quimica General,Martes,11:00,12:00,4,2
+99,ProfFicticio_1,Quimica General,Jueves,11:00,12:00,4,4
+100,ProfFicticio_1,Quimica General,Martes,12:00,13:00,5,2
+101,ProfFicticio_1,Quimica General,Martes,13:00,14:00,6,2
 102,ProfFicticio_2,Fisicoquimica,Lunes,08:00,09:00,1,1
-103,ProfFicticio_2,Fisicoquimica,Martes,08:00,09:00,1,2
-104,ProfFicticio_2,Fisicoquimica,Miércoles,08:00,09:00,1,3
-105,ProfFicticio_2,Fisicoquimica,Jueves,08:00,09:00,1,4
-106,ProfFicticio_2,Fisicoquimica,Viernes,08:00,09:00,1,5
+103,ProfFicticio_2,Fisicoquimica,Lunes,09:00,10:00,2,1
+104,ProfFicticio_2,Fisicoquimica,Lunes,10:00,11:00,3,1
+105,ProfFicticio_2,Fisicoquimica,Jueves,11:00,12:00,4,4
+106,ProfFicticio_2,Fisicoquimica,Jueves,12:00,13:00,5,4
 107,ProfFicticio_3,Matemáticas para la Comput. I,Lunes,08:00,09:00,1,1
 108,ProfFicticio_3,Matemáticas para la Comput. I,Martes,08:00,09:00,1,2
-109,ProfFicticio_3,Matemáticas para la Comput. I,Miércoles,08:00,09:00,1,3
-110,ProfFicticio_3,Matemáticas para la Comput. I,Jueves,08:00,09:00,1,4
-111,ProfFicticio_3,Matemáticas para la Comput. I,Viernes,08:00,09:00,1,5
-112,ProfFicticio_4,Ensamblador,Lunes,08:00,09:00,1,1
-113,ProfFicticio_4,Ensamblador,Martes,08:00,09:00,1,2
-114,ProfFicticio_4,Ensamblador,Miércoles,08:00,09:00,1,3
-115,ProfFicticio_4,Ensamblador,Jueves,08:00,09:00,1,4
-116,ProfFicticio_4,Ensamblador,Viernes,08:00,09:00,1,5
+109,ProfFicticio_3,Matemáticas para la Comput. I,Lunes,09:00,10:00,2,1
+110,ProfFicticio_3,Matemáticas para la Comput. I,Martes,09:00,10:00,2,2
+111,ProfFicticio_3,Matemáticas para la Comput. I,Lunes,10:00,11:00,3,1
+112,ProfFicticio_4,Ensamblador,Jueves,13:00,14:00,6,4
+113,ProfFicticio_4,Ensamblador,Miércoles,14:00,15:00,7,3
+114,ProfFicticio_4,Ensamblador,Jueves,14:00,15:00,7,4
+115,ProfFicticio_4,Ensamblador,Miércoles,15:00,16:00,8,3
+116,ProfFicticio_4,Ensamblador,Jueves,15:00,16:00,8,4
 117,ProfFicticio_5,Programación Estructurada,Lunes,08:00,09:00,1,1
 118,ProfFicticio_5,Programación Estructurada,Martes,08:00,09:00,1,2
-119,ProfFicticio_5,Programación Estructurada,Miércoles,08:00,09:00,1,3
-120,ProfFicticio_5,Programación Estructurada,Jueves,08:00,09:00,1,4
-121,ProfFicticio_5,Programación Estructurada,Viernes,08:00,09:00,1,5
-122,ProfFicticio_6,Procesos de Diseño,Martes,08:00,09:00,1,2
-123,ProfFicticio_6,Procesos de Diseño,Miércoles,08:00,09:00,1,3
-124,ProfFicticio_6,Procesos de Diseño,Jueves,08:00,09:00,1,4
-125,ProfFicticio_6,Procesos de Diseño,Viernes,08:00,09:00,1,5
-126,ProfFicticio_7,Dibujo I,Martes,08:00,09:00,1,2
-127,ProfFicticio_7,Dibujo I,Miércoles,08:00,09:00,1,3
-128,ProfFicticio_7,Dibujo I,Jueves,08:00,09:00,1,4
-129,ProfFicticio_7,Dibujo I,Viernes,08:00,09:00,1,5
-130,ProfFicticio_8,Matematicas,Lunes,08:00,09:00,1,1
-131,ProfFicticio_8,Matematicas,Martes,08:00,09:00,1,2
-132,ProfFicticio_8,Matematicas,Miércoles,08:00,09:00,1,3
-133,ProfFicticio_8,Matematicas,Jueves,08:00,09:00,1,4
-134,ProfFicticio_8,Matematicas,Viernes,08:00,09:00,1,5
-135,ProfFicticio_9,Quimica General I,Miércoles,08:00,09:00,1,3
-136,ProfFicticio_9,Quimica General I,Jueves,08:00,09:00,1,4
-137,ProfFicticio_9,Quimica General I,Viernes,08:00,09:00,1,5
-138,ProfFicticio_10,Quimica General I (LAB),Jueves,08:00,09:00,1,4
-139,ProfFicticio_10,Quimica General I (LAB),Viernes,08:00,09:00,1,5
-140,ProfFicticio_11,Introduccion a la Farmacia,Jueves,08:00,09:00,1,4
-141,ProfFicticio_11,Introduccion a la Farmacia,Viernes,08:00,09:00,1,5
-142,ProfFicticio_12,Herramientas Computacionales,Jueves,08:00,09:00,1,4
-143,ProfFicticio_12,Herramientas Computacionales,Viernes,08:00,09:00,1,5
-144,ProfFicticio_13,Fundamentos de Matemáticas,Lunes,08:00,09:00,1,1
-145,ProfFicticio_13,Fundamentos de Matemáticas,Martes,08:00,09:00,1,2
-146,ProfFicticio_13,Fundamentos de Matemáticas,Miércoles,08:00,09:00,1,3
-147,ProfFicticio_13,Fundamentos de Matemáticas,Jueves,08:00,09:00,1,4
-148,ProfFicticio_13,Fundamentos de Matemáticas,Viernes,08:00,09:00,1,5
-149,ProfFicticio_14,Álgebra Superior Aplicada,Lunes,08:00,09:00,1,1
-150,ProfFicticio_14,Álgebra Superior Aplicada,Martes,08:00,09:00,1,2
-151,ProfFicticio_14,Álgebra Superior Aplicada,Miércoles,08:00,09:00,1,3
-152,ProfFicticio_14,Álgebra Superior Aplicada,Jueves,08:00,09:00,1,4
-153,ProfFicticio_14,Álgebra Superior Aplicada,Viernes,08:00,09:00,1,5
-154,ProfFicticio_15,Programación Básica,Lunes,08:00,09:00,1,1
-155,ProfFicticio_15,Programación Básica,Martes,08:00,09:00,1,2
-156,ProfFicticio_15,Programación Básica,Miércoles,08:00,09:00,1,3
-157,ProfFicticio_15,Programación Básica,Jueves,08:00,09:00,1,4
-158,ProfFicticio_15,Programación Básica,Viernes,08:00,09:00,1,5
-159,ProfFicticio_16,Introducción a las Matemáticas,Lunes,08:00,09:00,1,1
-160,ProfFicticio_16,Introducción a las Matemáticas,Martes,08:00,09:00,1,2
-161,ProfFicticio_16,Introducción a las Matemáticas,Miércoles,08:00,09:00,1,3
-162,ProfFicticio_16,Introducción a las Matemáticas,Jueves,08:00,09:00,1,4
-163,ProfFicticio_16,Introducción a las Matemáticas,Viernes,08:00,09:00,1,5
+119,ProfFicticio_5,Programación Estructurada,Lunes,09:00,10:00,2,1
+120,ProfFicticio_5,Programación Estructurada,Martes,09:00,10:00,2,2
+121,ProfFicticio_5,Programación Estructurada,Lunes,10:00,11:00,3,1
+122,ProfFicticio_6,Procesos de Diseño,Lunes,08:00,09:00,1,1
+123,ProfFicticio_6,Procesos de Diseño,Lunes,09:00,10:00,2,1
+124,ProfFicticio_6,Procesos de Diseño,Lunes,10:00,11:00,3,1
+125,ProfFicticio_6,Procesos de Diseño,Martes,17:00,18:00,10,2
+126,ProfFicticio_7,Dibujo I,Martes,15:00,16:00,8,2
+127,ProfFicticio_7,Dibujo I,Viernes,15:00,16:00,8,5
+128,ProfFicticio_7,Dibujo I,Viernes,16:00,17:00,9,5
+129,ProfFicticio_7,Dibujo I,Viernes,17:00,18:00,10,5
+130,ProfFicticio_8,Matematicas,Miércoles,13:00,14:00,6,3
+131,ProfFicticio_8,Matematicas,Miércoles,14:00,15:00,7,3
+132,ProfFicticio_8,Matematicas,Miércoles,15:00,16:00,8,3
+133,ProfFicticio_8,Matematicas,Jueves,16:00,17:00,9,4
+134,ProfFicticio_8,Matematicas,Jueves,17:00,18:00,10,4
+135,ProfFicticio_9,Quimica General I,Lunes,08:00,09:00,1,1
+136,ProfFicticio_9,Quimica General I,Lunes,09:00,10:00,2,1
+137,ProfFicticio_9,Quimica General I,Lunes,10:00,11:00,3,1
+138,ProfFicticio_10,Quimica General I (LAB),Miércoles,12:00,13:00,5,3
+139,ProfFicticio_10,Quimica General I (LAB),Miércoles,13:00,14:00,6,3
+140,ProfFicticio_11,Introduccion a la Farmacia,Jueves,16:00,17:00,9,4
+141,ProfFicticio_11,Introduccion a la Farmacia,Jueves,17:00,18:00,10,4
+142,ProfFicticio_12,Herramientas Computacionales,Lunes,15:00,16:00,8,1
+143,ProfFicticio_12,Herramientas Computacionales,Lunes,16:00,17:00,9,1
+144,ProfFicticio_13,Fundamentos de Matemáticas,Viernes,12:00,13:00,5,5
+145,ProfFicticio_13,Fundamentos de Matemáticas,Jueves,13:00,14:00,6,4
+146,ProfFicticio_13,Fundamentos de Matemáticas,Viernes,13:00,14:00,6,5
+147,ProfFicticio_13,Fundamentos de Matemáticas,Jueves,14:00,15:00,7,4
+148,ProfFicticio_13,Fundamentos de Matemáticas,Jueves,15:00,16:00,8,4
+149,ProfFicticio_14,Álgebra Superior Aplicada,Martes,14:00,15:00,7,2
+150,ProfFicticio_14,Álgebra Superior Aplicada,Miércoles,14:00,15:00,7,3
+151,ProfFicticio_14,Álgebra Superior Aplicada,Martes,15:00,16:00,8,2
+152,ProfFicticio_14,Álgebra Superior Aplicada,Miércoles,15:00,16:00,8,3
+153,ProfFicticio_14,Álgebra Superior Aplicada,Miércoles,16:00,17:00,9,3
+154,ProfFicticio_15,Programación Básica,Jueves,13:00,14:00,6,4
+155,ProfFicticio_15,Programación Básica,Jueves,14:00,15:00,7,4
+156,ProfFicticio_15,Programación Básica,Jueves,15:00,16:00,8,4
+157,ProfFicticio_15,Programación Básica,Miércoles,16:00,17:00,9,3
+158,ProfFicticio_15,Programación Básica,Miércoles,17:00,18:00,10,3
+159,ProfFicticio_16,Introducción a las Matemáticas,Viernes,13:00,14:00,6,5
+160,ProfFicticio_16,Introducción a las Matemáticas,Viernes,14:00,15:00,7,5
+161,ProfFicticio_16,Introducción a las Matemáticas,Viernes,15:00,16:00,8,5
+162,ProfFicticio_16,Introducción a las Matemáticas,Jueves,16:00,17:00,9,4
+163,ProfFicticio_16,Introducción a las Matemáticas,Jueves,17:00,18:00,10,4
 164,ProfFicticio_17,Introducción a la Programación,Lunes,08:00,09:00,1,1
-165,ProfFicticio_17,Introducción a la Programación,Martes,08:00,09:00,1,2
-166,ProfFicticio_17,Introducción a la Programación,Miércoles,08:00,09:00,1,3
-167,ProfFicticio_17,Introducción a la Programación,Jueves,08:00,09:00,1,4
-168,ProfFicticio_17,Introducción a la Programación,Viernes,08:00,09:00,1,5
-169,ProfFicticio_18,Introducción a la Programación,Lunes,08:00,09:00,1,1
-170,ProfFicticio_18,Introducción a la Programación,Martes,08:00,09:00,1,2
-171,ProfFicticio_18,Introducción a la Programación,Miércoles,08:00,09:00,1,3
-172,ProfFicticio_18,Introducción a la Programación,Jueves,08:00,09:00,1,4
-173,ProfFicticio_18,Introducción a la Programación,Viernes,08:00,09:00,1,5
+165,ProfFicticio_17,Introducción a la Programación,Lunes,09:00,10:00,2,1
+166,ProfFicticio_17,Introducción a la Programación,Lunes,10:00,11:00,3,1
+167,ProfFicticio_17,Introducción a la Programación,Martes,11:00,12:00,4,2
+168,ProfFicticio_17,Introducción a la Programación,Martes,12:00,13:00,5,2
+169,ProfFicticio_18,Introducción a la Programación,Lunes,13:00,14:00,6,1
+170,ProfFicticio_18,Introducción a la Programación,Martes,13:00,14:00,6,2
+171,ProfFicticio_18,Introducción a la Programación,Lunes,14:00,15:00,7,1
+172,ProfFicticio_18,Introducción a la Programación,Martes,14:00,15:00,7,2
+173,ProfFicticio_18,Introducción a la Programación,Lunes,15:00,16:00,8,1
 174,ProfFicticio_19,Matematicas Elementales,Lunes,08:00,09:00,1,1
-175,ProfFicticio_19,Matematicas Elementales,Martes,08:00,09:00,1,2
-176,ProfFicticio_19,Matematicas Elementales,Miércoles,08:00,09:00,1,3
-177,ProfFicticio_19,Matematicas Elementales,Jueves,08:00,09:00,1,4
-178,ProfFicticio_19,Matematicas Elementales,Viernes,08:00,09:00,1,5
+175,ProfFicticio_19,Matematicas Elementales,Lunes,09:00,10:00,2,1
+176,ProfFicticio_19,Matematicas Elementales,Lunes,10:00,11:00,3,1
+177,ProfFicticio_19,Matematicas Elementales,Martes,12:00,13:00,5,2
+178,ProfFicticio_19,Matematicas Elementales,Martes,13:00,14:00,6,2
 179,ProfFicticio_20,Matematicas Elementales,Lunes,08:00,09:00,1,1
-180,ProfFicticio_20,Matematicas Elementales,Martes,08:00,09:00,1,2
-181,ProfFicticio_20,Matematicas Elementales,Miércoles,08:00,09:00,1,3
-182,ProfFicticio_20,Matematicas Elementales,Jueves,08:00,09:00,1,4
-183,ProfFicticio_20,Matematicas Elementales,Viernes,08:00,09:00,1,5
+180,ProfFicticio_20,Matematicas Elementales,Lunes,09:00,10:00,2,1
+181,ProfFicticio_20,Matematicas Elementales,Lunes,10:00,11:00,3,1
+182,ProfFicticio_20,Matematicas Elementales,Jueves,14:00,15:00,7,4
+183,ProfFicticio_20,Matematicas Elementales,Jueves,15:00,16:00,8,4
 184,ProfFicticio_21,Matematicas Elementales,Lunes,08:00,09:00,1,1
-185,ProfFicticio_21,Matematicas Elementales,Martes,08:00,09:00,1,2
-186,ProfFicticio_21,Matematicas Elementales,Miércoles,08:00,09:00,1,3
-187,ProfFicticio_21,Matematicas Elementales,Jueves,08:00,09:00,1,4
-188,ProfFicticio_21,Matematicas Elementales,Viernes,08:00,09:00,1,5
-189,ProfFicticio_22,Matematicas Universitarias I,Lunes,08:00,09:00,1,1
-190,ProfFicticio_22,Matematicas Universitarias I,Martes,08:00,09:00,1,2
-191,ProfFicticio_22,Matematicas Universitarias I,Miércoles,08:00,09:00,1,3
-192,ProfFicticio_22,Matematicas Universitarias I,Jueves,08:00,09:00,1,4
-193,ProfFicticio_22,Matematicas Universitarias I,Viernes,08:00,09:00,1,5
-194,ProfFicticio_23,Matematicas Universitarias I,Lunes,08:00,09:00,1,1
-195,ProfFicticio_23,Matematicas Universitarias I,Martes,08:00,09:00,1,2
-196,ProfFicticio_23,Matematicas Universitarias I,Miércoles,08:00,09:00,1,3
-197,ProfFicticio_23,Matematicas Universitarias I,Jueves,08:00,09:00,1,4
-198,ProfFicticio_23,Matematicas Universitarias I,Viernes,08:00,09:00,1,5
+185,ProfFicticio_21,Matematicas Elementales,Lunes,09:00,10:00,2,1
+186,ProfFicticio_21,Matematicas Elementales,Lunes,10:00,11:00,3,1
+187,ProfFicticio_21,Matematicas Elementales,Martes,11:00,12:00,4,2
+188,ProfFicticio_21,Matematicas Elementales,Martes,12:00,13:00,5,2
+189,ProfFicticio_22,Matematicas Universitarias I,Jueves,08:00,09:00,1,4
+190,ProfFicticio_22,Matematicas Universitarias I,Viernes,08:00,09:00,1,5
+191,ProfFicticio_22,Matematicas Universitarias I,Jueves,09:00,10:00,2,4
+192,ProfFicticio_22,Matematicas Universitarias I,Viernes,09:00,10:00,2,5
+193,ProfFicticio_22,Matematicas Universitarias I,Jueves,10:00,11:00,3,4
+194,ProfFicticio_23,Matematicas Universitarias I,Jueves,13:00,14:00,6,4
+195,ProfFicticio_23,Matematicas Universitarias I,Viernes,13:00,14:00,6,5
+196,ProfFicticio_23,Matematicas Universitarias I,Jueves,14:00,15:00,7,4
+197,ProfFicticio_23,Matematicas Universitarias I,Viernes,14:00,15:00,7,5
+198,ProfFicticio_23,Matematicas Universitarias I,Jueves,15:00,16:00,8,4
 199,ProfFicticio_24,Matematicas Universitarias I,Lunes,08:00,09:00,1,1
-200,ProfFicticio_24,Matematicas Universitarias I,Martes,08:00,09:00,1,2
-201,ProfFicticio_24,Matematicas Universitarias I,Miércoles,08:00,09:00,1,3
-202,ProfFicticio_24,Matematicas Universitarias I,Jueves,08:00,09:00,1,4
-203,ProfFicticio_24,Matematicas Universitarias I,Viernes,08:00,09:00,1,5
+200,ProfFicticio_24,Matematicas Universitarias I,Lunes,09:00,10:00,2,1
+201,ProfFicticio_24,Matematicas Universitarias I,Lunes,10:00,11:00,3,1
+202,ProfFicticio_24,Matematicas Universitarias I,Martes,12:00,13:00,5,2
+203,ProfFicticio_24,Matematicas Universitarias I,Martes,13:00,14:00,6,2
 204,ProfFicticio_25,Mecanica,Lunes,08:00,09:00,1,1
-205,ProfFicticio_25,Mecanica,Martes,08:00,09:00,1,2
-206,ProfFicticio_25,Mecanica,Miércoles,08:00,09:00,1,3
-207,ProfFicticio_25,Mecanica,Jueves,08:00,09:00,1,4
-208,ProfFicticio_25,Mecanica,Viernes,08:00,09:00,1,5
-209,ProfFicticio_26,Mecanica,Lunes,08:00,09:00,1,1
-210,ProfFicticio_26,Mecanica,Martes,08:00,09:00,1,2
-211,ProfFicticio_26,Mecanica,Miércoles,08:00,09:00,1,3
-212,ProfFicticio_26,Mecanica,Jueves,08:00,09:00,1,4
-213,ProfFicticio_26,Mecanica,Viernes,08:00,09:00,1,5
-214,ProfFicticio_27,Mecanica,Lunes,08:00,09:00,1,1
-215,ProfFicticio_27,Mecanica,Martes,08:00,09:00,1,2
-216,ProfFicticio_27,Mecanica,Miércoles,08:00,09:00,1,3
-217,ProfFicticio_27,Mecanica,Jueves,08:00,09:00,1,4
-218,ProfFicticio_27,Mecanica,Viernes,08:00,09:00,1,5
-219,ProfFicticio_28,Introducción a la FGU,Viernes,08:00,09:00,1,5
-220,ProfFicticio_28,Introducción a la FGU,Viernes,09:00,10:00,2,5
-221,ProfFicticio_28,Introducción a la FGU,Viernes,17:00,18:00,10,5
+205,ProfFicticio_25,Mecanica,Lunes,09:00,10:00,2,1
+206,ProfFicticio_25,Mecanica,Lunes,10:00,11:00,3,1
+207,ProfFicticio_25,Mecanica,Martes,12:00,13:00,5,2
+208,ProfFicticio_25,Mecanica,Martes,13:00,14:00,6,2
+209,ProfFicticio_26,Mecanica,Jueves,13:00,14:00,6,4
+210,ProfFicticio_26,Mecanica,Viernes,13:00,14:00,6,5
+211,ProfFicticio_26,Mecanica,Jueves,14:00,15:00,7,4
+212,ProfFicticio_26,Mecanica,Viernes,14:00,15:00,7,5
+213,ProfFicticio_26,Mecanica,Jueves,15:00,16:00,8,4
+214,ProfFicticio_27,Mecanica,Jueves,13:00,14:00,6,4
+215,ProfFicticio_27,Mecanica,Viernes,13:00,14:00,6,5
+216,ProfFicticio_27,Mecanica,Jueves,14:00,15:00,7,4
+217,ProfFicticio_27,Mecanica,Viernes,14:00,15:00,7,5
+218,ProfFicticio_27,Mecanica,Viernes,15:00,16:00,8,5
+219,ProfFicticio_28,Introducción a la FGU,Lunes,08:00,09:00,1,1
+220,ProfFicticio_28,Introducción a la FGU,Lunes,09:00,10:00,2,1
+221,ProfFicticio_28,Introducción a la FGU,Lunes,10:00,11:00,3,1
