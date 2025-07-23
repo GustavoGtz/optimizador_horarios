@@ -56,4 +56,4 @@ El uso del sistema completo sigue una secuencia de pasos estructurada. A continu
 5. **Visualización de resultados**  
    Finalmente, los resultados generados por el modelo pueden visualizarse de manera interactiva mediante `cu2map.py`, que permite explorar gráficamente la ocupación del campus.
 
-Detalles adicionales se podrna encontrar en los distintos archivos del proyecto
+Detalles adicionales se podra encontrar en los distintos archivos del proyecto
