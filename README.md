@@ -3,7 +3,7 @@
 Este repositorio contiene un proyecto desarrollado como parte del **Programa de Investigación del Pacífico (DELFIN)**, llevado a cabo en la **Benemérita Universidad Autónoma de Puebla** por los siguientes integrantes:
 
 - Gustavo Gutierrez Navarro - Universidad de Sonora
-- [Nombre del integrante 1]  
+- Gael Balderrama Dominguez - Universidad de Sonora 
 - [Nombre del integrante 2]  
 
 ## Objetivo
